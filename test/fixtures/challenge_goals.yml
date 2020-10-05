@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_weight: 1.5
+  start_body_fat: 1.5
+  start_calorie_goal: 1
+  user: one
+  challenge: one
+
+two:
+  start_weight: 1.5
+  start_body_fat: 1.5
+  start_calorie_goal: 1
+  user: two
+  challenge: two

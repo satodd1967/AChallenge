@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_date: MyString
+  duration: 1
+  end_date: MyString
+  active_calorie_goal: 1
+  points_worked_out: 1
+  points_tracked_food: 1
+  points_met_calorie_goal: 1
+  points_maintain_weight: 1
+  points_maintain_body_fat: 1
+  points_met_active_calorie_goal: 1
+  user: one
+
+two:
+  name: MyString
+  start_date: MyString
+  duration: 1
+  end_date: MyString
+  active_calorie_goal: 1
+  points_worked_out: 1
+  points_tracked_food: 1
+  points_met_calorie_goal: 1
+  points_maintain_weight: 1
+  points_maintain_body_fat: 1
+  points_met_active_calorie_goal: 1
+  user: two

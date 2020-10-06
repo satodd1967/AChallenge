@@ -6,5 +6,5 @@ class User < ApplicationRecord
     has_many :challenges, through: :challenge_users
 
     has_secure_password
-    
+
 end

@@ -13,7 +13,7 @@ patrick = User.create(email: "patrick@google.com", password: "patrick1", usernam
 joe = User.create(email: "joe@google.com", password: "joe1", username: "joe")
 
 # Challenge 1
-c1 = Challenge.create(name: "challenge1", start_date: "2020-10-05", duration: "5", end_date: "2020-11-02", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
+c1 = Challenge.create(name: "challenge1", description: "Allot of stuff about Challenge1 and how its the best challenge ever", start_date: "2020-10-05", duration: "5", end_date: "2020-11-02", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
     # Building Join Table
     c1cu1 = ChallengeUser.create(challenge: c1, user: kris)
     c1cu2 = ChallengeUser.create(challenge: c1, user: tim)
@@ -39,7 +39,7 @@ c1 = Challenge.create(name: "challenge1", start_date: "2020-10-05", duration: "5
     joec1l3 = Log.create(log_date: "2020-20-07", worked_out: "yes", tracked_food: "yes", weight: "183.57", body_fat: ".27.75", active_calories: "600", calories: "3200", user: joe, challenge: c1)
 
 # Challenge 2
-c2 = Challenge.create(name: "challenge2", start_date: "2020-10-05", duration: "4", end_date: "2020-10-26", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
+c2 = Challenge.create(name: "challenge2", description: "Allot of stuff about challenge 2 and how its the 2nd best challenge ever", start_date: "2020-10-05", duration: "4", end_date: "2020-10-26", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
     # Building Join Table
     c2cu1 = ChallengeUser.create(challenge: c2, user: kris)
     c2cu2 = ChallengeUser.create(challenge: c2, user: tim)
@@ -60,7 +60,7 @@ c2 = Challenge.create(name: "challenge2", start_date: "2020-10-05", duration: "4
     patrickc2l3 = Log.create(log_date: "2020-20-07", worked_out: "yes", tracked_food: "yes", weight: "183.57", body_fat: ".27.75", active_calories: "600", calories: "3200", user: patrick, challenge: c2)
 
 # Challenge 3
-c3 = Challenge.create(name: "challenge3", start_date: "2020-10-05", duration: "6", end_date: "2020-11-09", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: tim)
+c3 = Challenge.create(name: "challenge3", description: "Allot of stuff about challenge 3 and how its the 3rd best challenge ever", start_date: "2020-10-05", duration: "6", end_date: "2020-11-09", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: tim)
     # Building Join Table
     c3cu1 = ChallengeUser.create(challenge: c3, user: kris)
     c3cu2 = ChallengeUser.create(challenge: c3, user: tim)

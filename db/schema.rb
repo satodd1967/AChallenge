@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
 
   create_table "challenges", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.string "start_date"
     t.integer "duration"
     t.string "end_date"

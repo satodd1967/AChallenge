@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_212703) do
+ActiveRecord::Schema.define(version: 2020_10_09_213924) do
 
   create_table "challenge_goals", force: :cascade do |t|
     t.float "start_weight"
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["challenge_id"], name: "index_challenge_goals_on_challenge_id"
     t.index ["user_id"], name: "index_challenge_goals_on_user_id"
-  end
-
-  create_table "challenge_users", force: :cascade do |t|
-    t.integer "challenge_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["challenge_id"], name: "index_challenge_users_on_challenge_id"
-    t.index ["user_id"], name: "index_challenge_users_on_user_id"
   end
 
   create_table "challenges", force: :cascade do |t|
@@ -50,6 +41,16 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_challenges_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id", null: false
+    t.integer "log_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["log_id"], name: "index_comments_on_log_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "logs", force: :cascade do |t|
@@ -83,8 +84,8 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
 
   add_foreign_key "challenge_goals", "challenges"
   add_foreign_key "challenge_goals", "users"
-  add_foreign_key "challenge_users", "challenges"
-  add_foreign_key "challenge_users", "users"
   add_foreign_key "challenges", "users"
+  add_foreign_key "comments", "logs"
+  add_foreign_key "comments", "users"
   add_foreign_key "logs", "users"
 end

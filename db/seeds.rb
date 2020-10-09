@@ -8,34 +8,31 @@
 
 # Users
 kris = User.create(email: "kris@google.com", password: "kris1", username: "kris")
-    # Challenge Logs
-    krisl1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", weight: "134.57", body_fat: ".22.75", active_calories: "600", calories: "2200", user: kris)
-    krisl2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "0", weight: "133.57", body_fat: ".21.75", active_calories: "700", calories: "2300", user: kris)
-    krisl3 = Log.create(log_date: "2020-20-07", worked_out: "0", tracked_food: "1", weight: "132.57", body_fat: ".20.75", active_calories: "800", calories: "2500", user: kris)
-        # Log Comments
-        kriscl1 = Comment.create(content: "Nice Job" user: tim, log: krisl1)
-        kriscl2 = Comment.create(content: "Even Better Job" user: tim, log: krisl2)
-        kriscl3 = Comment.create(content: "Great Job Kris" user: patrick log: krisl3)
 tim = User.create(email: "tim@google.com", password: "tim1", username: "tim")
-    # Challenge Logs
-    timl1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", weight: "165.57", body_fat: ".25.75", active_calories: "300", calories: "3200", user: tim)
-    timl2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "1", weight: "164.57", body_fat: ".25", active_calories: "400", calories: "3200", user: tim)
-    timl3 = Log.create(log_date: "2020-20-07", worked_out: "1", tracked_food: "0", weight: "163.57", body_fat: ".24.75", active_calories: "500", calories: "3200", user: tim)
-        # Log Comments
-        timcl1 = Comment.create(content: "Nice Job Timmy" user: kris log: timl1)
-        timcl3 = Comment.create(content: "Way to go Timmay" user: joe log: timl3)
 patrick = User.create(email: "patrick@google.com", password: "patrick1", username: "patrick")
-    # Challenge Logs
-    patrickl1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", weight: "185.57", body_fat: ".29.75", active_calories: "600", calories: "3200", user: patrick)
-    patrickl2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".28.75", active_calories: "600", calories: "3200", user: patrick)
-    patrickl3 = Log.create(log_date: "2020-20-07", worked_out: "1", tracked_food: "0", weight: "183.57", body_fat: ".27.75", active_calories: "600", calories: "3200", user: patrick)
-        # Log Comments
-        patrickcl1 = Comment.create(content: "You Suck Patrick!!" user: tim log: patrickl1)
 joe = User.create(email: "joe@google.com", password: "joe1", username: "joe")
-    # Challenge Logs
-    joel1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", weight: "185.57", body_fat: ".29.75", active_calories: "600", calories: "3200", user: joe)
-    joel2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".28.75", active_calories: "600", calories: "3200", user: joe)
-    joel3 = Log.create(log_date: "2020-20-07", worked_out: "1", tracked_food: "1", weight: "183.57", body_fat: ".27.75", active_calories: "600", calories: "3200", user: joe)
+
+# User Logs
+krisl1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", weight: "134.57", body_fat: ".22.75", active_calories: "600", calories: "2200", user: kris)
+krisl2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "0", weight: "133.57", body_fat: ".21.75", active_calories: "700", calories: "2300", user: kris)
+krisl3 = Log.create(log_date: "2020-20-07", worked_out: "0", tracked_food: "1", weight: "132.57", body_fat: ".20.75", active_calories: "800", calories: "2500", user: kris)
+timl1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", weight: "165.57", body_fat: ".25.75", active_calories: "300", calories: "3200", user: tim)
+timl2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "1", weight: "164.57", body_fat: ".25", active_calories: "400", calories: "3200", user: tim)
+timl3 = Log.create(log_date: "2020-20-07", worked_out: "1", tracked_food: "0", weight: "163.57", body_fat: ".24.75", active_calories: "500", calories: "3200", user: tim)
+patrickl1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", weight: "185.57", body_fat: ".29.75", active_calories: "600", calories: "3200", user: patrick)
+patrickl2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".28.75", active_calories: "600", calories: "3200", user: patrick)
+patrickl3 = Log.create(log_date: "2020-20-07", worked_out: "1", tracked_food: "0", weight: "183.57", body_fat: ".27.75", active_calories: "600", calories: "3200", user: patrick)
+joel1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", weight: "185.57", body_fat: ".29.75", active_calories: "600", calories: "3200", user: joe)
+joel2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".28.75", active_calories: "600", calories: "3200", user: joe)
+joel3 = Log.create(log_date: "2020-20-07", worked_out: "1", tracked_food: "1", weight: "183.57", body_fat: ".27.75", active_calories: "600", calories: "3200", user: joe)
+
+# Log Comments
+kriscl1 = Comment.create(content: "Nice Job", user: tim, log: krisl1)
+kriscl2 = Comment.create(content: "Even Better Job", user: tim, log: krisl2)
+kriscl3 = Comment.create(content: "Great Job Kris", user: patrick, log: krisl3)
+timcl1 = Comment.create(content: "Nice Job Timmy", user: kris, log: timl1)
+timcl3 = Comment.create(content: "Way to go Timmay", user: joe, log: timl3)
+patrickcl1 = Comment.create(content: "You Suck Patrick!!", user: tim, log: patrickl1)
 
 # Challenge 1
 c1 = Challenge.create(name: "challenge1", description: "Allot of stuff about Challenge1 and how its the best challenge ever", start_date: "2020-10-05", duration: "5", end_date: "2020-11-02", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)

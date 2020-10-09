@@ -8,4 +8,10 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    def participating_challenges
+        self.challenges.each do |challenge|
+            challenge.challenge_goals.where(user: self)
+        end
+    end
+
 end

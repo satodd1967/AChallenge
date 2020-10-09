@@ -16,7 +16,7 @@ class CreateLogs < ActiveRecord::Migration[6.0]
       t.integer :points_met_active_calorie_goal
       t.integer :total_points
       t.belongs_to :user, null: false, foreign_key: true
-      t.belongs_to :challenge, null: false, foreign_key: true
+      # t.belongs_to :challenge, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -68,10 +68,8 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
     t.integer "points_met_active_calorie_goal"
     t.integer "total_points"
     t.integer "user_id", null: false
-    t.integer "challenge_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["challenge_id"], name: "index_logs_on_challenge_id"
     t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
@@ -88,6 +86,5 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
   add_foreign_key "challenge_users", "challenges"
   add_foreign_key "challenge_users", "users"
   add_foreign_key "challenges", "users"
-  add_foreign_key "logs", "challenges"
   add_foreign_key "logs", "users"
 end

@@ -1,4 +1,24 @@
 <h1>Welcom <%= @user.username %></h1>
 
+<h2>Challenges</h2>
+<ul>
+  <% @user.challenges.each do |challenge| %>
+    <li><%= link_to "#{challenge.name} challenge #{"- *owner*" if challenge.user_id == @user.id}", challenge_path(challenge) %></li>
+    <li><%= "#{challenge.description}" %></li>
+    <br>
+  <% end %>
+  </ul>
+<br>
+<br>
+<h2>Logs</h2>
+<ul>
+  <% @user.logs.each do |log| %>
+    <li><%= link_to "#{log.log_date}", log_path(log) %></li>
+    <li><%= "#{log.worked_out}" %></li>
+    <li><%= "#{log.tracked_food}" %></li>
+    <br>
+  <% end %>
+  </ul>
+
 <%= link_to "Logout", logout_path, method: "delete" %>
 

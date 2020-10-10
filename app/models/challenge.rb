@@ -3,6 +3,7 @@ class Challenge < ApplicationRecord
   has_many :challenge_goals
   has_many :users, through: :challenge_goals
 
+
   def challenge_owner
     self.user
   end

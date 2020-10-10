@@ -1,0 +1,11 @@
+<h1>All Challenges</h1>
+
+<ul>
+  <% @challenges.each do |challenge| %>
+    <li><%= link_to "#{challenge.name} Challenge #{"*Owner*" if challenge.challenge_owner == @user}", challenge_path(challenge) %></li>
+    <li><%= "#{challenge.description}" %></li>
+    <br>
+  <% end %>
+  <%= link_to "Create a new challenge!", new_challenge_path, method: "get" %>
+  </ul>
+<br>

@@ -2,7 +2,7 @@
 
 <h2>Your Challenges</h2>
 <ul>
-  <% @user.participating_challenges.each do |challenge| %>
+  <% @user.challenges.each do |challenge| %>
     <li><%= link_to "#{challenge.name} Challenge #{"*Owner*" if challenge.challenge_owner == @user}", challenge_path(challenge) %></li>
     <li><%= "#{challenge.description}" %></li>
     <br>

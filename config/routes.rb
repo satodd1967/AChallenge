@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :comments
   root "sessions#home"
 
   get '/signup' => 'users#new'
@@ -8,7 +7,12 @@ Rails.application.routes.draw do
 
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-  
+
+  resources :challenges, only: [:show] do
+    resources :challenge_goals, only: [:new]
+  end
+
+  resources :comments
   resources :logs
   resources :challenge_goals
   resources :challenges

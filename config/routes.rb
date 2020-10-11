@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   resources :challenges
 
-  resources :challenges, only: [:show] do
-    resources :challenge_goals, only: [:new]
+  resources :challenges, only: [] do
+    resources :challenge_goals, only: [:new, :create]
   end
 
   resources :comments

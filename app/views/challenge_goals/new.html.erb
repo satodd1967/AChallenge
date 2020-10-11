@@ -4,7 +4,7 @@
 <h4>Description: <%= @challenge_goal.challenge.description %>
 <br>
 <br>
-<%= form_for(@challenge_goal) do |f| %>
+<%= form_for([@challenge,@challenge_goal]) do |f| %>
 
     <%= f.label :start_weight %>
     <%= f.number_field :start_weight %>

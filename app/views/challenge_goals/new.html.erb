@@ -1,3 +1,25 @@
-<% binding.pry %>
+
 <h1>Join this Challenge</h1>
-<h2>Setup Your Challenge Goals</h2>
+<h2><%= @challenge_goal.user.username %> Setup Your Challenge Goals</h2>
+<h4><%= @challenge_goal.challenge.name %>
+<h4><%= @challenge_goal.challenge.description %>
+<h4>User ID <%= @challenge_goal.user_id %>
+<br>
+<br>
+<%= form_for(@challenge_goal) do |f| %>
+
+    <%= f.label :start_weight %>
+    <%= f.number_field :start_weight %>
+    <br>
+    <br>
+    <%= f.label :start_body_fat %>
+    <%= f.number_field :start_body_fat %>
+    <br>
+    <br>
+    <%= f.label :start_calorie_goal %>
+    <%= f.number_field :start_calorie_goal %>
+    <br>
+    <br>
+    <%= f.submit "Submit" %>
+
+<% end %>

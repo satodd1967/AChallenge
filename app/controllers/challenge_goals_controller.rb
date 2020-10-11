@@ -12,5 +12,11 @@ class ChallengeGoalsController < ApplicationController
         binding.pry
     end
 
+    private
+
+    def challenge_goal_params
+        params.require(:challenge_goal).permit(:start_weight, :start_body_fat, :start_calorie_goal)
+    end
+
 
 end

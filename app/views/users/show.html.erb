@@ -1,3 +1,6 @@
+<%= link_to "All Challenges", challenges_path, method: "get" %>
+<br>
+<br>
 <h1>Welcom <%= @user.username %></h1>
 
 <h2>Your Challenges</h2>
@@ -21,4 +24,5 @@
   </ul>
 
 <%= link_to "Logout", logout_path, method: "delete" %>
+
 

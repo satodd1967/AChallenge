@@ -6,7 +6,7 @@ class ChallengesController < ApplicationController
 
     def new
         @challenge = Challenge.new
-      end
+    end
     
     def create
       @challenge = current_user.owned_challenges.build(challenge_params)

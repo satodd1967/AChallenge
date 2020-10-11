@@ -11,7 +11,7 @@ class ChallengesController < ApplicationController
     def create
       @challenge = current_user.owned_challenges.build(challenge_params)
       if @challenge.save
-          redirect_to challenges_path
+          redirect_to new_challenge_challenge_goal_path(@challenge.id)
       else
           render :new
       end

@@ -9,13 +9,19 @@ class ChallengeGoalsController < ApplicationController
     end
 
     def create
-        binding.pry
+       @challenge_goal = current_user.challenge_goals.build(challenge_goal_params)
+       if @challenge_goal.save
+        redirect_to user_path(current_user)
+       else
+        render :new
+       end
     end
 
     private
 
     def challenge_goal_params
-        params.require(:challenge_goal).permit(:start_weight, :start_body_fat, :start_calorie_goal)
+        params[:challenge_goal][:challenge_id] = params[:challenge_id]
+        params.require(:challenge_goal).permit(:start_weight, :start_body_fat, :start_calorie_goal, :challenge_id)
     end
 
 

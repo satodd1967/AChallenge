@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :logged_in?, :to_percent
+    helper_method :current_user, :logged_in?, :to_percent, :to_float
 
 private
 
@@ -18,6 +18,10 @@ private
 
     def to_percent(float)
         (float*100).round(2)
+    end
+
+    def to_float(float)
+        float/100
     end
 
 end

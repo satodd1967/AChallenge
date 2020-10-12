@@ -10,6 +10,19 @@
   </head>
 
   <body>
-    <%= yield %>
+  <% if logged_in? %>
+    <div class="sidebar">
+    <div class="logo-text">
+        <h1>Accountability Challenge</h1>
+    </div>
+        <h4><%= link_to "View All Challenges", challenges_path, method: "get" %></h4>
+        <h4><%= link_to "Create a new challenge", new_challenge_path, method: "get" %></h4>
+        <h4><%= link_to "Create a new log", new_log_path, method: "get" %></h4>
+        <h4><%= link_to "Logout", logout_path, method: "delete" %></h4>
+    </div>
+  <% end %>
+    <div class='content'>    
+      <%= yield %>
+    </div>
   </body>
 </html>

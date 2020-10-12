@@ -1,12 +1,4 @@
-<%= link_to "All Challenges", challenges_path, method: "get" %>
-<br>
-<%= link_to "Create a new challenge!", new_challenge_path, method: "get" %>
-<br>
-<%= link_to "Create a new log", new_log_path, method: "get" %>
-<br>
-<br>
-<h1>Welcom <%= @user.username %></h1>
-
+<h1>Welcome <%= @user.username %></h1>
 <h2>Your Challenges</h2>
 <ul>
   <% @user.challenges.each do |challenge| %>
@@ -15,8 +7,7 @@
     <br>
   <% end %>
 </ul>
-<br>
-<h2>Logs</h2>
+<h2>Diary Logs</h2>
 <ul>
   <% @user.logs.each do |log| %>
     <li><%= link_to "#{log.log_date}", log_path(log) %></li>
@@ -31,8 +22,6 @@
     <% end %>
     <br>
   <% end %>
-  </ul>
-
-<%= link_to "Logout", logout_path, method: "delete" %>
+</ul>
 
 

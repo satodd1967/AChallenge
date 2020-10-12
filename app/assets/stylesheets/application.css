@@ -81,7 +81,7 @@ li {
     left: 0px;
     top: 0px;
     bottom: 0px;
-    width: 15%;
+    width: 17%;
     height: 100%;
     padding: 50px 40px;
     background-color: #333;
@@ -102,13 +102,13 @@ li {
     width: 75%;
     margin-left: 25%;
     margin-top: 2%;
-    padding: 10px;
+    padding: 2px;
   }
 
 .firstpage {
     display: block;
     border-radius: 25px;
-    margin-left: 18%;
+    margin-left: 9%;
     margin-top: 6%;
     width: 30%;
     padding: 50px;
@@ -133,11 +133,11 @@ input[type="date"] {
     display: block;
     margin-left: 0%;
     width: 150px;
-    margin-bottom: 1em;
+    margin-bottom: .01em;
     padding: .5em 0;
     border: none;
-    border-bottom: 1.5px solid #eaeaea;
-    padding-bottom: 1.25em;
+    border-bottom: .1px solid #eaeaea;
+    padding-bottom: .1em;
     color: #757575;
 }
 
@@ -145,11 +145,11 @@ input[type="number"] {
   display: block;
   margin-left: 0%;
   width: 150px;
-  margin-bottom: 1em;
-  padding: .5em 0;
+  margin-bottom: .01em;
+  padding: .01em 0;
   border: none;
-  border-bottom: 1.5px solid #eaeaea;
-  padding-bottom: .2em;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: .05em;
   color: #757575;
 }
 

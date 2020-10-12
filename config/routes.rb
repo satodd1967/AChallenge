@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :log_scores
   root "sessions#home"
 
   get '/signup' => 'users#new'

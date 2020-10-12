@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  points_worked_out: 1
+  points_tracked_food: 1
+  points_met_calorie_goal: 1
+  points_maintain_weight: 1
+  points_maintain_body_fat: 1
+  points_met_active_calorie_goal: 1
+  total_points: 1
+  log: one
+  challenge_belongs_to: MyString
+
+two:
+  points_worked_out: 1
+  points_tracked_food: 1
+  points_met_calorie_goal: 1
+  points_maintain_weight: 1
+  points_maintain_body_fat: 1
+  points_met_active_calorie_goal: 1
+  total_points: 1
+  log: two
+  challenge_belongs_to: MyString

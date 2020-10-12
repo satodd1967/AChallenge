@@ -1,0 +1,2 @@
+class LogScoresController < ApplicationController
+end

@@ -51,13 +51,6 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
     t.float "body_fat"
     t.integer "active_calories"
     t.integer "calories"
-    t.integer "points_worked_out"
-    t.integer "points_tracked_food"
-    t.integer "points_met_calorie_goal"
-    t.integer "points_maintain_weight"
-    t.integer "points_maintain_body_fat"
-    t.integer "points_met_active_calorie_goal"
-    t.integer "total_points"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

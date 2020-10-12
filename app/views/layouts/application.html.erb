@@ -15,6 +15,7 @@
     <div class="logo-text">
         <h1>Accountability Challenge</h1>
     </div>
+        <h4><%= link_to "Home", user_path(current_user), method: "get" %></h4>
         <h4><%= link_to "View All Challenges", challenges_path, method: "get" %></h4>
         <h4><%= link_to "Create a new challenge", new_challenge_path, method: "get" %></h4>
         <h4><%= link_to "Create a new log", new_log_path, method: "get" %></h4>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_212703) do
+ActiveRecord::Schema.define(version: 2020_10_12_005818) do
 
   create_table "challenge_goals", force: :cascade do |t|
     t.float "start_weight"
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
+  create_table "log_scores", force: :cascade do |t|
+    t.integer "points_worked_out"
+    t.integer "points_tracked_food"
+    t.integer "points_met_calorie_goal"
+    t.integer "points_maintain_weight"
+    t.integer "points_maintain_body_fat"
+    t.integer "points_met_active_calorie_goal"
+    t.integer "total_points"
+    t.integer "log_id", null: false
+    t.integer "challenge_goal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_goal_id"], name: "index_log_scores_on_challenge_goal_id"
+    t.index ["log_id"], name: "index_log_scores_on_log_id"
+  end
+
   create_table "logs", force: :cascade do |t|
     t.string "log_date"
     t.boolean "worked_out"
@@ -68,5 +84,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_212703) do
   add_foreign_key "challenge_goals", "challenges"
   add_foreign_key "challenge_goals", "users"
   add_foreign_key "challenges", "users"
+  add_foreign_key "log_scores", "challenge_goals"
+  add_foreign_key "log_scores", "logs"
   add_foreign_key "logs", "users"
 end

@@ -26,14 +26,6 @@ joel1 = Log.create(log_date: "2020-20-05", worked_out: "1", tracked_food: "1", w
 joel2 = Log.create(log_date: "2020-20-06", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".28.75", active_calories: "600", calories: "3200", user: joe)
 joel3 = Log.create(log_date: "2020-20-07", worked_out: "1", tracked_food: "1", weight: "183.57", body_fat: ".27.75", active_calories: "600", calories: "3200", user: joe)
 
-# Log Comments
-kriscl1 = Comment.create(content: "Nice Job", user: tim, log: krisl1)
-kriscl2 = Comment.create(content: "Even Better Job", user: tim, log: krisl2)
-kriscl3 = Comment.create(content: "Great Job Kris", user: patrick, log: krisl3)
-timcl1 = Comment.create(content: "Nice Job Timmy", user: kris, log: timl1)
-timcl3 = Comment.create(content: "Way to go Timmay", user: joe, log: timl3)
-patrickcl1 = Comment.create(content: "You Suck Patrick!!", user: tim, log: patrickl1)
-
 # Challenge 1
 c1 = Challenge.create(name: "challenge1", description: "Allot of stuff about Challenge1 and how its the best challenge ever", start_date: "2020-10-05", duration: "5", end_date: "2020-11-02", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
     # Challenge Gaols

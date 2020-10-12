@@ -7,6 +7,7 @@ class LogsController < ApplicationController
     def create
         @log = current_user.logs.build(log_params)
        if @log.save
+        @log.create_log_scores
         redirect_to user_path(current_user)
        else
         render :new

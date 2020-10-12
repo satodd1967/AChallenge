@@ -1,24 +1,35 @@
-<h1>Accountability Challenge Home</h1>
-<br>
-<h2>Sign In!</h2>
-
-<h1><%= flash[:message] if flash[:message]%></h1>
-<br>
-
-<%= form_for :user, url:'/login' do |f| %>
-
-    <%= f.label :email %>
-    <%= f.email_field :email, required: true %>
+<style>
+body {
+    background-image: url(<%= asset_path('fitness1') %>);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+<div class="firstpage">
+  <div class="logo-text">
+    <h1 style="text-align: center;">Accountability Challenge</h1>
+    <h2>Sign in</h2>
+  </div>
+    <h1><%= flash[:message] if flash[:message]%></h1>
     <br>
+    <%= form_for :user, url:'/login' do |f| %>
+    
+        <%= f.label :email %>
+        <%= f.email_field :email, required: true %>
+        <br>
+        <br>
+        <%= f.label :password %>
+        <%= f.password_field :password, required: true %>
+        <br>
+        <br>
+        <%= f.submit "login" %>
+    
+    <% end %>
     <br>
-    <%= f.label :password %>
-    <%= f.password_field :password, required: true %>
-    <br>
-    <br>
-    <%= f.submit "login" %>
+    <div class="nav-link">
+    <%= link_to "Signup Here!", signup_path %>
+</div>
 
-<% end %>
-<br>
-<br>
-<%= link_to "Signup Here!", signup_path %>
+
 

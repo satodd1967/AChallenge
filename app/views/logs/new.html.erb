@@ -1,0 +1,31 @@
+<h1>Start a new Challenge</h1>
+
+<%= form_for(@log) do |f| %>
+
+    <%= f.label :worked_out %>
+    <%= f.boolean_field :worked_out %>
+    <br>
+    <br>
+    <%= f.label :tracked_food %>
+    <%= f.boolean_field :tracked_food %>
+    <br>
+    <br>
+    <%= f.label :weight, step: .01 %>
+    <%= f.number_field :weight %>
+    <br>
+    <br>
+    <%= f.label :body_fat, step: 0.01, "Body Fat %" %>
+    <%= f.number_field :body_fat %>
+    <br>
+    <br>
+    <%= f.label :active_calories %>
+    <%= f.number_field :active_calories %>
+    <br>
+    <br>
+    <%= f.label :calories %>
+    <%= f.number_field :calories %>
+    <br>
+    <br>
+    <%= f.submit "Submit" %>
+
+<% end %>

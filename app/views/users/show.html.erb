@@ -26,7 +26,9 @@
     <li><%= "Body Fat: #{log.body_fat}" %></li>
     <li><%= "Active Calories: #{log.active_calories}" %></li>
     <li><%= "Calories: #{log.calories}" %></li>
-    
+    <% log.user.log_scores.where(log_id: log.id).each do |ls| %>
+        <li><%= "#{ls.challenge_goal.challenge.name} - Total Points - #{ls.total_points}" %></li>
+    <% end %>
     <br>
   <% end %>
   </ul>

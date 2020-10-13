@@ -1,7 +1,7 @@
 <%= form_for log do |f| %>
 
     <% if log.log_date %>
-        <h3><%= log.log_date %></h3>
+        <%= f.hidden_field :log_date %>
     <% else %>
         <%= f.label :log_date %>
         <%= f.date_field :log_date %>

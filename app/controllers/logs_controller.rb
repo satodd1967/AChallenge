@@ -1,5 +1,8 @@
 class LogsController < ApplicationController
 
+    before_action :find_log, only: [:show, :edit, :update]
+    before_action :redirect_if_not_logged_in 
+
     def new
         @log = Log.new
     end
@@ -25,6 +28,10 @@ class LogsController < ApplicationController
     def log_params
         params[:log][:body_fat] = to_float(params[:log][:body_fat].to_f)
         params.require(:log).permit(:log_date, :worked_out, :tracked_food, :weight, :body_fat, :active_calories, :calories)
+    end
+
+    def find_log
+        @log = Log.find_by(id: params[:id])
     end
 
 

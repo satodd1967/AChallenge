@@ -1,0 +1,33 @@
+<%= form_for log do |f| %>
+
+    <%= f.label :log_date %>
+    <%= f.date_field :log_date %>
+    <br>
+    <br>
+    <%= f.label :worked_out %>
+    <%= f.check_box :worked_out %>
+    <br>
+    <br>
+    <%= f.label :tracked_food %>
+    <%= f.check_box :tracked_food %>
+    <br>
+    <br>
+    <%= f.label :weight %>
+    <%= f.number_field :weight, step: 0.01 %>
+    <br>
+    <br>
+    <%= f.label :body_fat, "Body Fat %" %>
+    <%= f.number_field :body_fat, step: 0.01 %>
+    <br>
+    <br>
+    <%= f.label :active_calories %>
+    <%= f.number_field :active_calories %>
+    <br>
+    <br>
+    <%= f.label :calories %>
+    <%= f.number_field :calories %>
+    <br>
+    <br>
+    <%= f.submit "Submit" %>
+
+<% end %>

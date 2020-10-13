@@ -9,9 +9,9 @@ class LogsController < ApplicationController
 
     def create
         @log = current_user.logs.build(log_params)
-       if @log.save
-        @log.create_log_scores
-        redirect_to user_path(current_user)
+        if @log.save
+            @log.create_log_scores
+            redirect_to user_path(current_user)
        else
         render :new
        end
@@ -27,12 +27,14 @@ class LogsController < ApplicationController
     end
 
     def update
+        binding.pry
         @log.update(log_params)
-      if @log.save
-        # need to figure out how to update the existing log_scores here.  Probably wipe and recreate them is easiest
-        redirect_to user_path(current_user)
-      else
-        render :edit
+        if @log.save
+            @log.update_log_scores
+            redirect_to user_path(current_user)
+        else
+            render :edit
+        end
     end
 
     private
@@ -43,7 +45,7 @@ class LogsController < ApplicationController
     end
 
     def find_log
-        @log = Log.find_by(id: params[:id])
+        @log = Log.find_by_id(params[:id])
     end
 
 

@@ -4,6 +4,7 @@
   <% @user.challenges.each do |challenge| %>
     <li><%= link_to "#{challenge.name} Challenge", challenge_path(challenge) %></li>
     <li><%= "#{challenge.description}" %></li>
+    <li><%= link_to "Click here to edit your goals for this challenge", edit_challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id)) %></li>
     <% if challenge.challenge_owner == @user %>
         <li><%= link_to "You Started this challenge click here to make edits", edit_challenge_path(challenge) %></li>
     <% end %>

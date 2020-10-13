@@ -23,6 +23,18 @@ class LogsController < ApplicationController
         redirect_to root_path if !@log  
     end
 
+    def edit
+    end
+
+    def update
+        @log.update(log_params)
+      if @log.save
+        # need to figure out how to update the existing log_scores here.  Probably wipe and recreate them is easiest
+        redirect_to user_path(current_user)
+      else
+        render :edit
+    end
+
     private
 
     def log_params

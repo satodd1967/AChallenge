@@ -30,6 +30,7 @@ class ChallengesController < ApplicationController
     def update
         @challenge.update(challenge_params)
       if @challenge.save
+        # Need to update all associated challenge_scores when this challenge is updated
         redirect_to challenge_path(@challenge)
       else
         render :edit

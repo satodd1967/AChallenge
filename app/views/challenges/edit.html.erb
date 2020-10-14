@@ -1,3 +1,5 @@
-<h1>Edit your challenge here</h1>
+<h1>Edit the <%= @challenge.name %> Challenge</h1>
+<h4>Start Date: <%= @challenge.start_date %> End Date: <%= @challenge.end_date %></h4>
+<h4>Duration <%= @challenge.duration %> weeks</h4>
 
 <%= render partial: 'form', locals: {challenge: @challenge} %>

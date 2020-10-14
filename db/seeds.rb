@@ -13,21 +13,21 @@ patrick = User.create(email: "patrick@google.com", password: "patrick1", usernam
 joe = User.create(email: "joe@google.com", password: "joe1", username: "joe")
 
 # User Logs
-krisl1 = Log.create(log_date: "2020-10-05", worked_out: "1", tracked_food: "1", weight: "134.57", body_fat: ".2275", active_calories: "600", calories: "2200", user: kris)
-krisl2 = Log.create(log_date: "2020-10-06", worked_out: "0", tracked_food: "0", weight: "133.57", body_fat: ".2175", active_calories: "700", calories: "2300", user: kris)
-krisl3 = Log.create(log_date: "2020-10-07", worked_out: "0", tracked_food: "1", weight: "132.57", body_fat: ".2075", active_calories: "800", calories: "2500", user: kris)
-timl1 = Log.create(log_date: "2020-10-05", worked_out: "1", tracked_food: "1", weight: "165.57", body_fat: ".2575", active_calories: "300", calories: "3200", user: tim)
-timl2 = Log.create(log_date: "2020-10-06", worked_out: "0", tracked_food: "1", weight: "164.57", body_fat: ".25", active_calories: "400", calories: "3200", user: tim)
-timl3 = Log.create(log_date: "2020-10-07", worked_out: "1", tracked_food: "0", weight: "163.57", body_fat: ".2475", active_calories: "500", calories: "3200", user: tim)
-patrickl1 = Log.create(log_date: "2020-10-05", worked_out: "1", tracked_food: "1", weight: "185.57", body_fat: ".2975", active_calories: "600", calories: "3200", user: patrick)
-patrickl2 = Log.create(log_date: "2020-10-06", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".2875", active_calories: "600", calories: "3200", user: patrick)
-patrickl3 = Log.create(log_date: "2020-10-07", worked_out: "1", tracked_food: "0", weight: "183.57", body_fat: ".2775", active_calories: "600", calories: "3200", user: patrick)
-joel1 = Log.create(log_date: "2020-10-05", worked_out: "1", tracked_food: "1", weight: "185.57", body_fat: ".2975", active_calories: "600", calories: "3200", user: joe)
-joel2 = Log.create(log_date: "2020-10-06", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".2875", active_calories: "600", calories: "3200", user: joe)
-joel3 = Log.create(log_date: "2020-10-07", worked_out: "1", tracked_food: "1", weight: "183.57", body_fat: ".2775", active_calories: "600", calories: "3200", user: joe)
+krisl1 = Log.create(log_date: "10/05/2020", worked_out: "1", tracked_food: "1", weight: "134.57", body_fat: ".2275", active_calories: "600", calories: "2200", user: kris)
+krisl2 = Log.create(log_date: "10/06/2020", worked_out: "0", tracked_food: "0", weight: "133.57", body_fat: ".2175", active_calories: "700", calories: "2300", user: kris)
+krisl3 = Log.create(log_date: "10/07/2020", worked_out: "0", tracked_food: "1", weight: "132.57", body_fat: ".2075", active_calories: "800", calories: "2500", user: kris)
+timl1 = Log.create(log_date: "10/05/2020", worked_out: "1", tracked_food: "1", weight: "165.57", body_fat: ".2575", active_calories: "300", calories: "3200", user: tim)
+timl2 = Log.create(log_date: "10/06/2020", worked_out: "0", tracked_food: "1", weight: "164.57", body_fat: ".25", active_calories: "400", calories: "3200", user: tim)
+timl3 = Log.create(log_date: "10/07/2020", worked_out: "1", tracked_food: "0", weight: "163.57", body_fat: ".2475", active_calories: "500", calories: "3200", user: tim)
+patrickl1 = Log.create(log_date: "10/05/2020", worked_out: "1", tracked_food: "1", weight: "185.57", body_fat: ".2975", active_calories: "600", calories: "3200", user: patrick)
+patrickl2 = Log.create(log_date: "10/06/2020", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".2875", active_calories: "600", calories: "3200", user: patrick)
+patrickl3 = Log.create(log_date: "10/07/2020", worked_out: "1", tracked_food: "0", weight: "183.57", body_fat: ".2775", active_calories: "600", calories: "3200", user: patrick)
+joel1 = Log.create(log_date: "10/05/2020", worked_out: "1", tracked_food: "1", weight: "185.57", body_fat: ".2975", active_calories: "600", calories: "3200", user: joe)
+joel2 = Log.create(log_date: "10/06/2020", worked_out: "0", tracked_food: "1", weight: "184.57", body_fat: ".2875", active_calories: "600", calories: "3200", user: joe)
+joel3 = Log.create(log_date: "10/07/2020", worked_out: "1", tracked_food: "1", weight: "183.57", body_fat: ".2775", active_calories: "600", calories: "3200", user: joe)
 
 # Challenge 1
-c1 = Challenge.create(name: "challenge1", description: "Allot of stuff about Challenge1 and how its the best challenge ever", start_date: "2020-10-05", duration: "5", end_date: "2020-11-02", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
+c1 = Challenge.create(name: "challenge1", description: "Allot of stuff about Challenge1 and how its the best challenge ever", start_date: "10/05/2020", duration: "5", end_date: "11/02/2020", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
     # Challenge Gaols
     krisCg1 = ChallengeGoal.create(start_weight: "135.5", start_body_fat: ".2323", start_calorie_goal: "2300", user: kris, challenge: c1)
     timCg1 = ChallengeGoal.create(start_weight: "175.2", start_body_fat: ".2545", start_calorie_goal: "3000", user: tim, challenge: c1)
@@ -35,14 +35,14 @@ c1 = Challenge.create(name: "challenge1", description: "Allot of stuff about Cha
     joeCg1 = ChallengeGoal.create(start_weight: "233.5", start_body_fat: ".3033", start_calorie_goal: "3500", user: joe, challenge: c1)
 
 # Challenge 2
-c2 = Challenge.create(name: "challenge2", description: "Allot of stuff about challenge 2 and how its the 2nd best challenge ever", start_date: "2020-10-05", duration: "4", end_date: "2020-10-26", active_calorie_goal: "250", points_worked_out: "15", points_tracked_food: "15", points_met_calorie_goal: "15", points_maintain_weight: "20", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
+c2 = Challenge.create(name: "challenge2", description: "Allot of stuff about challenge 2 and how its the 2nd best challenge ever", start_date: "10/05/2020", duration: "4", end_date: "10/26/2020", active_calorie_goal: "250", points_worked_out: "15", points_tracked_food: "15", points_met_calorie_goal: "15", points_maintain_weight: "20", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
     # Challenge Goals
     krisCg2 = ChallengeGoal.create(start_weight: "135.5", start_body_fat: ".2323", start_calorie_goal: "2300", user: kris, challenge: c2)
     timCg2 = ChallengeGoal.create(start_weight: "175.2", start_body_fat: ".2545", start_calorie_goal: "3000", user: tim, challenge: c2)
     patrickCg2 = ChallengeGoal.create(start_weight: "185.8", start_body_fat: ".2745", start_calorie_goal: "3100", user: patrick, challenge: c2)
 
 # Challenge 3
-c3 = Challenge.create(name: "challenge3", description: "Allot of stuff about challenge 3 and how its the 3rd best challenge ever", start_date: "2020-10-15", duration: "6", end_date: "2020-11-24", active_calorie_goal: "400", points_worked_out: "20", points_tracked_food: "15", points_met_calorie_goal: "15", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: tim)
+c3 = Challenge.create(name: "challenge3", description: "Allot of stuff about challenge 3 and how its the 3rd best challenge ever", start_date: "10/15/2020", duration: "6", end_date: "11/24/2020", active_calorie_goal: "400", points_worked_out: "20", points_tracked_food: "15", points_met_calorie_goal: "15", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: tim)
     # Challenge Goals
     krisCg3 = ChallengeGoal.create(start_weight: "135.5", start_body_fat: ".2323", start_calorie_goal: "2300", user: kris, challenge: c3)
     timCg3 = ChallengeGoal.create(start_weight: "175.2", start_body_fat: ".2545", start_calorie_goal: "3000", user: tim, challenge: c3)

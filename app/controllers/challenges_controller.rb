@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-    before_action :find_challenge, only: [:show, :edit, :update]
+    before_action :find_challenge, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_logged_in    
 
     def index
@@ -42,7 +42,8 @@ class ChallengesController < ApplicationController
     end
 
     def destroy
-        
+        @challenge.destroy
+        redirect_to user_path(current_user)
     end
 
     private

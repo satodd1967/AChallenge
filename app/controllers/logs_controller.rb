@@ -27,7 +27,6 @@ class LogsController < ApplicationController
     end
 
     def update
-        binding.pry
         @log.update(log_params)
         if @log.save
             @log.update_log_scores
@@ -38,7 +37,6 @@ class LogsController < ApplicationController
     end
 
     def destroy
-        binding.pry
         @log.destroy
         redirect_to user_path(current_user)
     end

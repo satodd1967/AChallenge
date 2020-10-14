@@ -3,3 +3,5 @@
 <h4>Duration <%= @challenge.duration %> weeks</h4>
 
 <%= render partial: 'form', locals: {challenge: @challenge} %>
+<br>
+<%= button_to "Delete", challenge_path(@challenge), :method => :delete %>

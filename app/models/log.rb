@@ -1,6 +1,6 @@
 class Log < ApplicationRecord
   belongs_to :user
-  has_many :log_scores
+  has_many :log_scores, :dependent => :destroy
 
   def create_log_scores
     self.user.challenge_goals.each do |cg|

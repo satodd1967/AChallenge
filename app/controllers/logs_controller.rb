@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
 
-    before_action :find_log, only: [:show, :edit, :update]
+    before_action :find_log, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_logged_in 
 
     def new
@@ -35,6 +35,12 @@ class LogsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        binding.pry
+        @log.destroy
+        redirect_to user_path(current_user)
     end
 
     private

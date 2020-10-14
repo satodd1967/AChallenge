@@ -1,3 +1,5 @@
 <h1>Log for <%= @log.log_date %></h1>
 
 <%= render partial: 'form', locals: {log: @log} %>
+<br>
+<%= button_to "Delete", log_path(@log), :method => :delete %>

@@ -3,13 +3,14 @@
 <ul>
   <% @user.challenges.each do |challenge| %>
     <li><%= link_to "#{challenge.name} Challenge", challenge_path(challenge) %></li>
-    <li><%= "#{challenge.description}" %></li>
-    <li><%= link_to "Click here to view your goals for this challenge", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %></li>
+    <li>Description<br>  <%= "-    #{challenge.description}" %><br>
+    <%= link_to "Click here to view your goals for this challenge", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %><br>
     <% if challenge.challenge_owner == @user %>
-        <li><%= link_to "You Started this challenge click here to make edits", edit_challenge_path(challenge) %></li>
+        <%= link_to "You Started this challenge click here to make edits", edit_challenge_path(challenge) %>
     <% end %>
     <br>
-  <% end %>
+    <br>
+    <% end %></li>
 </ul>
 <h2>Diary Logs</h2>
 <ul>

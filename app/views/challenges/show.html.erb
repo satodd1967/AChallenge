@@ -23,6 +23,6 @@
     <br>
     <br>
     <% if @challenge.challenge_owner == current_user %>
-        <%= link_to "Edit this challenge", edit_challenge_path(@challenge) %>
+        <%= button_to "Edit", edit_challenge_path(@challenge), :method => :get %>
     <% end %>
 </ul>

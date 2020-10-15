@@ -1,1 +1,28 @@
-<%= @challenge.name %>
+<h1><%= @challenge.name %></h1>
+<h4>Challenge Owner: <%= User.find_by_id(@challenge.user_id).username %>
+<h4>Start Date: <%= @challenge.start_date %> End Date: <%= @challenge.end_date %></h4>
+<h4>Duration <%= @challenge.duration %> weeks</h4>
+<ul>
+    <li>Description<br>-<%= @challenge.description %></li>
+    <br>
+    <li>Active Calorie Goal: <%= @challenge.active_calorie_goal %></li>
+    <br>
+    <li>Points Worked Out: <%= @challenge.points_worked_out %></li>
+    <br>
+    <li>Points Tracked Food: <%= @challenge.points_tracked_food %></li>
+    <br>
+    <li>Points Met Calorie Goal: <%= @challenge.points_met_calorie_goal %></li>
+    <br>
+    <li>Points Maintain Weight: <%= @challenge.points_maintain_weight %></li>
+    <br>
+    <li>Points Maintain Body Fat: <%= @challenge.points_maintain_body_fat %></li>
+    <br>
+    <li>Points Met Active Calorie Goal: <%= @challenge.points_met_active_calorie_goal %></li>
+    <br>
+    <%= link_to "View your goals", challenge_goal_path(@challenge.challenge_goals.where(user_id: current_user).first.id) %>
+    <br>
+    <br>
+    <% if @challenge.challenge_owner == current_user %>
+        <%= link_to "Edit this challenge", edit_challenge_path(@challenge) %>
+    <% end %>
+</ul>

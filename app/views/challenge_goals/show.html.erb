@@ -9,5 +9,5 @@
     <li>Start Calorie Goal: <%= @challenge_goal.start_calorie_goal %></li>
     <br>
     <br>
-    <%= button_to "Edit", edit_challenge_goal_path(@challenge_goal) %>
+    <%= button_to "Edit", edit_challenge_goal_path(@challenge_goal), :method => :get %>
 </ul>

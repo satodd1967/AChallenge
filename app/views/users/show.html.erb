@@ -2,11 +2,11 @@
 <h2>Your Challenges</h2>
 <ul>
   <% @user.challenges.each do |challenge| %>
-    <li><%= link_to "#{challenge.name} Challenge", challenge_path(challenge) %></li>
+    <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>
     <li>Description<br>  <%= "-    #{challenge.description}" %><br>
-    <%= link_to "Click here to view your goals for this challenge", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %><br>
+    <%= link_to "View challenge goals", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %><br>
     <% if challenge.challenge_owner == @user %>
-        <%= link_to "You Started this challenge click here to make edits", edit_challenge_path(challenge) %>
+        <%= link_to "Edit this challenge", edit_challenge_path(challenge) %>
     <% end %>
     <br>
     <br>

@@ -1,0 +1,13 @@
+<h1>Your goals for <%= @challenge_goal.challenge.name %></h1>
+<h4>Start Date: <%= @challenge_goal.challenge.start_date %> End Date: <%= @challenge_goal.challenge.end_date %></h4>
+<h4>Duration <%= @challenge_goal.challenge.duration %> weeks</h4>
+<ul>
+    <li>Start Weight: <%= @challenge_goal.start_weight %></li>
+    <br>
+    <li>Start Body Fat%: <%= @challenge_goal.start_body_fat.to_f*100 %></li>
+    <br>
+    <li>Start Calorie Goal: <%= @challenge_goal.start_calorie_goal %></li>
+    <br>
+    <br>
+    <%= button_to "Edit", edit_challenge_goal_path(@challenge_goal) %>
+</ul>

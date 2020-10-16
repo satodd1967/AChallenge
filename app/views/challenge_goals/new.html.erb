@@ -1,7 +1,7 @@
 
 <h1>Join this Challenge</h1>
 <h2><%= @challenge_goal.user.username %> Setup Your Challenge Goals for <%= @challenge_goal.challenge.name %></h2>
-<h4>Description: <%= @challenge_goal.challenge.description %>
+<h4>Description: <h5>- <%= @challenge_goal.challenge.description %></h5></h4>
 <br>
 <br>
 <%= form_for([@challenge_goal.challenge,@challenge_goal]) do |f| %>

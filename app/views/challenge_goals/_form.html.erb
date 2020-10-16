@@ -1,0 +1,21 @@
+<% if params[:challenge_id] %>
+    <% @object_s = [@challenge_goal.challenge,@challenge_goal] %>
+<% else %>
+    <% @object_s = @challenge_goal %>
+<% end %>
+    <%= form_for(@object_s) do |f| %>
+    <%= f.label :start_weight %>
+    <%= f.number_field :start_weight, step: 0.01  %>
+    <br>
+    <br>
+    <%= f.label :start_body_fat, "Start body fat %" %>
+    <%= f.number_field :start_body_fat, step: 0.01 %>
+    <br>
+    <br>
+    <%= f.label :start_calorie_goal %>
+    <%= f.number_field :start_calorie_goal %>
+    <br>
+    <br>
+    <%= f.submit "Submit" %>
+
+    <% end %>

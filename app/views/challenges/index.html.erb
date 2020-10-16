@@ -3,7 +3,8 @@
 <ul>
   <% @challenges.each do |challenge| %>
     <li><%= link_to "#{challenge.name} Challenge #{"*Owner*" if challenge.challenge_owner == @user}", challenge_path(challenge) %></li>
-    <li><%= "#{challenge.description}" %></li>
+    <li>Description<br>
+        - <%= "#{challenge.description}" %></li>
     <li><%= link_to "Join this challenge!", new_challenge_challenge_goal_path(challenge.id), method: "get" %>
     <br>
     <br>

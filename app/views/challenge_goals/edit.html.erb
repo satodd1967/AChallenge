@@ -1,0 +1,6 @@
+<h1>Edit your goals for <%= @challenge_goal.challenge.name %></h1>
+<h4>Start Date: <%= @challenge_goal.challenge.start_date %> End Date: <%= @challenge_goal.challenge.end_date %></h4>
+<h4>Duration <%= @challenge_goal.challenge.duration %> weeks</h4>
+<br>
+<br>
+<%= render partial: 'form', locals: {challenge_gaol: @challenge_goal} %>

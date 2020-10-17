@@ -26,12 +26,24 @@ class ChallengeGoalsController < ApplicationController
     end
 
     def update
+        binding.pry
+        @challenge_goal.update(challenge_goal_params)
+        if @challenge_goal.save
+            @challenge_goal.user.logs.each do |log|
+                log.update_log_scores
+            end
+            redirect_to user_path(current_user)
+        else
+            render :edit
+        end
     end
 
     private
 
     def challenge_goal_params
-        params[:challenge_goal][:challenge_id] = params[:challenge_id]
+        if params[:challenge_goal][:challenge_id]
+            params[:challenge_goal][:challenge_id] = params[:challenge_id]
+        end
         params[:challenge_goal][:start_body_fat] = to_float(params[:challenge_goal][:start_body_fat].to_f)
         params.require(:challenge_goal).permit(:start_weight, :start_body_fat, :start_calorie_goal, :challenge_id)
     end

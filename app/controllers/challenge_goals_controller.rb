@@ -6,11 +6,16 @@ class ChallengeGoalsController < ApplicationController
         if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
             @challenge_goal = @challenge.challenge_goals.build(user_id: current_user.id)
         else
+            # you need to change where this redirects to.  This needs to redirect to the new path for challenge_goals, but it also needs to retain the challenge_id from the previous transaction.  If not there will be a challenge created by a user without a challenge_goal for that user created.
+            # Eventually you will need to have error handling that always checkes for users with owned challenges that don't have challenge goals and forces them to create them bofore they get to the home page.  This is in case they somehow get logged out or something while creating a new
+            # challenge, but before creating a challenge goal for it.  You only create challenge goals 2 ways.  You create a challenge or you join a challenge.  You could consider not forcing an owner to participate.
             redirect_to root_path 
         end
     end
 
     def create
+        binding.pry
+        params[:challenge_goal][:challenge_id] = params[:challenge_id]
         params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f)
         @challenge_goal = current_user.challenge_goals.build(challenge_goal_params)
         if @challenge_goal.save
@@ -24,13 +29,12 @@ class ChallengeGoalsController < ApplicationController
     end
 
     def edit
-        # need to convert the decimal to a percent before rendering in the view here
+        @challenge_goal.start_body_fat = to_percent(@challenge_goal.start_body_fat)
         binding.pry
     end
 
     def update
-        binding.pry
-        # need to convert the % back to a decimal before saving here
+        params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f)
         @challenge_goal.update(challenge_goal_params)
         if @challenge_goal.save
             @challenge_goal.user.logs.each do |log|
@@ -45,10 +49,6 @@ class ChallengeGoalsController < ApplicationController
     private
 
     def challenge_goal_params
-        if params[:challenge_id]
-            params[:challenge_goal][:challenge_id] = params[:challenge_id]
-        end
-        # params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f)
         params.require(:challenge_goal).permit(:start_weight, :start_body_fat, :start_calorie_goal, :challenge_id)
     end
 

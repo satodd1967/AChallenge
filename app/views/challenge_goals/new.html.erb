@@ -5,3 +5,5 @@
 <br>
 <br>
 <%= render partial: 'form', locals: {challenge_gaol: @challenge_goal} %>
+<br>
+<%= button_to "Don't Join", user_path(current_user), :method => :get %>

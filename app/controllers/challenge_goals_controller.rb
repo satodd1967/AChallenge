@@ -6,10 +6,7 @@ class ChallengeGoalsController < ApplicationController
         if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
             @challenge_goal = @challenge.challenge_goals.build(user_id: current_user.id)
         else
-            # you need to change where this redirects to.  This needs to redirect to the new path for challenge_goals, but it also needs to retain the challenge_id from the previous transaction.  If not there will be a challenge created by a user without a challenge_goal for that user created.
-            # Eventually you will need to have error handling that always checkes for users with owned challenges that don't have challenge goals and forces them to create them bofore they get to the home page.  This is in case they somehow get logged out or something while creating a new
-            # challenge, but before creating a challenge goal for it.  You only create challenge goals 2 ways.  You create a challenge or you join a challenge.  You could consider not forcing an owner to participate.
-            redirect_to root_path 
+            redirect_to user_path(current_user)
         end
     end
 

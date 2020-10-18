@@ -11,18 +11,21 @@ class ChallengeGoalsController < ApplicationController
     end
 
     def create
-       @challenge_goal = current_user.challenge_goals.build(challenge_goal_params)
-       if @challenge_goal.save
-        redirect_to user_path(current_user)
-       else
-        render :new
-       end
+        binding.pry
+        @challenge_goal = current_user.challenge_goals.build(challenge_goal_params)
+        if @challenge_goal.save
+            redirect_to user_path(current_user)
+        else
+            
+            render :new
+        end
     end
 
     def show
     end
 
     def edit
+        binding.pry
     end
 
     def update
@@ -41,7 +44,7 @@ class ChallengeGoalsController < ApplicationController
     private
 
     def challenge_goal_params
-        if params[:challenge_goal][:challenge_id]
+        if params[:challenge_id]
             params[:challenge_goal][:challenge_id] = params[:challenge_id]
         end
         params[:challenge_goal][:start_body_fat] = to_float(params[:challenge_goal][:start_body_fat].to_f)

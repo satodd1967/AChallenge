@@ -8,6 +8,7 @@ class LogsController < ApplicationController
     end
 
     def create
+        params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f)
         @log = current_user.logs.build(log_params)
         if @log.save
             @log.create_log_scores
@@ -23,9 +24,11 @@ class LogsController < ApplicationController
     end
 
     def edit
+        @log.body_fat = to_percent(@log.body_fat) 
     end
 
     def update
+        params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f)
         @log.update(log_params)
         if @log.save
             @log.update_log_scores
@@ -43,7 +46,6 @@ class LogsController < ApplicationController
     private
 
     def log_params
-        params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f)
         params.require(:log).permit(:log_date, :worked_out, :tracked_food, :weight, :body_fat, :active_calories, :calories)
     end
 

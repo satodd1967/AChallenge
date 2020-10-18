@@ -5,6 +5,7 @@
     <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>
     <li>Description<br>  <%= "-    #{challenge.description}" %><br>
     <%= link_to "View your goals", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %><br>
+    <%= button_to "Quit", challenge_goal_path(challenge.challenge_goals.where(user: @user).first.id), :method => :delete %>
     <% if challenge.challenge_owner == @user %>
         <%= link_to "Edit this challenge", edit_challenge_path(challenge) %>
     <% end %>

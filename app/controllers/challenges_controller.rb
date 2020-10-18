@@ -29,10 +29,11 @@ class ChallengesController < ApplicationController
 
     def update
         @challenge.update(challenge_params)
-      if @challenge.save
-        @challenge.users.each do |user|
-            user.logs.each do |log|
-                log.update_log_scores
+        @challenge.end_date = (@challenge.start_date.to_date + (@challenge.duration*7)).to_s
+        if @challenge.save
+            @challenge.users.each do |user|
+                user.logs.each do |log|
+                    log.update_log_scores
             end
         end
         redirect_to challenge_path(@challenge)

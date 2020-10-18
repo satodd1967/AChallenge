@@ -14,7 +14,6 @@ class ChallengeGoalsController < ApplicationController
     end
 
     def create
-        binding.pry
         params[:challenge_goal][:challenge_id] = params[:challenge_id]
         params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f)
         @challenge_goal = current_user.challenge_goals.build(challenge_goal_params)

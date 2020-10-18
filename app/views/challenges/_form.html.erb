@@ -12,11 +12,9 @@
         <%= f.date_field :start_date %>
         <br>
     <% end %>
-    <% if !challenge.start_date %>
-        <%= f.label :duration, "Duration in weeks" %>
-        <%= f.number_field :duration %>
-        <br>
-    <% end %>
+    <%= f.label :duration, "Duration in weeks" %>
+    <%= f.number_field :duration %>
+    <br>
     <%= f.label :active_calorie_goal %>
     <%= f.number_field :active_calorie_goal %>
     <br>

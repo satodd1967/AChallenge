@@ -19,12 +19,11 @@ class LogsController < ApplicationController
     end
     
     def show
-        @log = Log.find_by_id(params[:id])
+        @log.body_fat = to_percent(@log.body_fat)
         redirect_to root_path if !@log  
     end
 
     def edit
-        @log.body_fat = to_percent(@log.body_fat) 
     end
 
     def update

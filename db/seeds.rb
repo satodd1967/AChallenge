@@ -29,7 +29,8 @@ joel3 = Log.create(log_date: "2020-10-07", worked_out: "1", tracked_food: "1", w
 # Challenge 1
 c1 = Challenge.create(name: "challenge1", description: "Allot of stuff about Challenge1 and how its the best challenge ever", start_date: "2020-10-05", duration: "5", active_calorie_goal: "300", points_worked_out: "10", points_tracked_food: "10", points_met_calorie_goal: "10", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
     # Set Challenge End Date
-    c1.end_date = (c1.start_date.to_date + (c1.duration*7)).to_s
+    c1.end_date = (c1.start_date.to_date + (c1.duration*7))
+    c1.save
     # Challenge Gaols
     krisCg1 = ChallengeGoal.create(start_weight: "135.5", start_body_fat: ".2323", start_calorie_goal: "2300", user: kris, challenge: c1)
     timCg1 = ChallengeGoal.create(start_weight: "175.2", start_body_fat: ".2545", start_calorie_goal: "3000", user: tim, challenge: c1)
@@ -39,7 +40,8 @@ c1 = Challenge.create(name: "challenge1", description: "Allot of stuff about Cha
 # Challenge 2
 c2 = Challenge.create(name: "challenge2", description: "Allot of stuff about challenge 2 and how its the 2nd best challenge ever", start_date: "2020-10-05", duration: "4", active_calorie_goal: "250", points_worked_out: "15", points_tracked_food: "15", points_met_calorie_goal: "15", points_maintain_weight: "20", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: kris)
     # Set Challenge End Date
-    c2.end_date = (c2.start_date.to_date + (c2.duration*7)).to_s
+    c2.end_date = (c2.start_date.to_date + (c2.duration*7))
+    c2.save
     # Challenge Goals
     krisCg2 = ChallengeGoal.create(start_weight: "135.5", start_body_fat: ".2323", start_calorie_goal: "2300", user: kris, challenge: c2)
     timCg2 = ChallengeGoal.create(start_weight: "175.2", start_body_fat: ".2545", start_calorie_goal: "3000", user: tim, challenge: c2)
@@ -48,7 +50,8 @@ c2 = Challenge.create(name: "challenge2", description: "Allot of stuff about cha
 # Challenge 3
 c3 = Challenge.create(name: "challenge3", description: "Allot of stuff about challenge 3 and how its the 3rd best challenge ever", start_date: "2020-10-15", duration: "6", active_calorie_goal: "400", points_worked_out: "20", points_tracked_food: "15", points_met_calorie_goal: "15", points_maintain_weight: "10", points_maintain_body_fat: "10", points_met_active_calorie_goal: "10", user: tim)
     #Set Challenge End Date
-    c3.end_date = (c3.start_date.to_date + (c3.duration*7)).to_s
+    c3.end_date = (c3.start_date.to_date + (c3.duration*7))
+    c3.save
     # Challenge Goals
     krisCg3 = ChallengeGoal.create(start_weight: "135.5", start_body_fat: ".2323", start_calorie_goal: "2300", user: kris, challenge: c3)
     timCg3 = ChallengeGoal.create(start_weight: "175.2", start_body_fat: ".2545", start_calorie_goal: "3000", user: tim, challenge: c3)

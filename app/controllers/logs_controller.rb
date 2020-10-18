@@ -43,7 +43,7 @@ class LogsController < ApplicationController
     private
 
     def log_params
-        params[:log][:body_fat] = to_float(params[:log][:body_fat].to_f)
+        params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f)
         params.require(:log).permit(:log_date, :worked_out, :tracked_food, :weight, :body_fat, :active_calories, :calories)
     end
 

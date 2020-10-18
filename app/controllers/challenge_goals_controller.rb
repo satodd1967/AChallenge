@@ -29,7 +29,6 @@ class ChallengeGoalsController < ApplicationController
 
     def edit
         @challenge_goal.start_body_fat = to_percent(@challenge_goal.start_body_fat)
-        binding.pry
     end
 
     def update

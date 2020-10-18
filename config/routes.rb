@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :challenges, only: [] do
     resources :challenge_goals, only: [:new, :create]
   end
-  
+
   resources :logs
   resources :challenge_goals
   resources :users

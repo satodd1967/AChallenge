@@ -105,4 +105,3 @@ Log.all.each do |log|
 end
 
 
-

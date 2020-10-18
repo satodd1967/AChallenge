@@ -1,17 +1,12 @@
 <h1>Welcome <%= @user.username %></h1>
 <h2>Your Challenges</h2>
 <ul>
-  <% @user.challenges.each do |challenge| %>
-    <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>
-    <li>Description<br>  <%= "-    #{challenge.description}" %><br>
-    <%= link_to "View your goals", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %><br>
-    <%= button_to "Quit Challenge", challenge_goal_path(challenge.challenge_goals.where(user: @user).first.id), :method => :delete %>
-    <% if challenge.challenge_owner == @user %>
-        <%= button_to "Edit Challenge", edit_challenge_path(challenge), :method => :get %>
+    <li><h4>Participating</h4></li>
+    <% if @user.challenges == [] %>
+        <%= "No Challenges" %>
+    <% else %>
+        <%= render partial: 'participating', locals: {user: @user} %>
     <% end %>
-    <br>
-    <br>
-    <% end %></li>
 </ul>
 <h2>Diary Logs</h2>
 <ul>

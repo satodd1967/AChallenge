@@ -1,0 +1,12 @@
+<ul>
+    <% @user.challenges.each do |challenge| %>
+        <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>
+        <li>Description<br>  <%= "-    #{challenge.description}" %><br>
+        <%= link_to "View your goals", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %><br>
+        <%= button_to "Quit Challenge", challenge_goal_path(challenge.challenge_goals.where(user: @user).first.id), :method => :delete %>
+        <% if challenge.challenge_owner == @user %>
+            <%= button_to "Edit Challenge", edit_challenge_path(challenge), :method => :get %>
+        <% end %>
+        <br></li>
+    <% end %>
+</ul>

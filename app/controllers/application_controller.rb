@@ -20,7 +20,7 @@ private
         (float*100).round(2)
     end
 
-    def to_float(float)
+    def to_decimal(float)
         float/100
     end
 

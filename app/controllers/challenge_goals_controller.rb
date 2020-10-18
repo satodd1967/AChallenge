@@ -45,7 +45,8 @@ class ChallengeGoalsController < ApplicationController
     end
 
     def destroy
-        binding.pry
+        @challenge_goal.destroy
+        redirect_to user_path(current_user)
     end
 
     private

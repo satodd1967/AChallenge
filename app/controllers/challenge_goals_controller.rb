@@ -11,12 +11,11 @@ class ChallengeGoalsController < ApplicationController
     end
 
     def create
-        binding.pry
+        params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f)
         @challenge_goal = current_user.challenge_goals.build(challenge_goal_params)
         if @challenge_goal.save
             redirect_to user_path(current_user)
         else
-            
             render :new
         end
     end
@@ -25,11 +24,13 @@ class ChallengeGoalsController < ApplicationController
     end
 
     def edit
+        # need to convert the decimal to a percent before rendering in the view here
         binding.pry
     end
 
     def update
         binding.pry
+        # need to convert the % back to a decimal before saving here
         @challenge_goal.update(challenge_goal_params)
         if @challenge_goal.save
             @challenge_goal.user.logs.each do |log|
@@ -47,7 +48,7 @@ class ChallengeGoalsController < ApplicationController
         if params[:challenge_id]
             params[:challenge_goal][:challenge_id] = params[:challenge_id]
         end
-        params[:challenge_goal][:start_body_fat] = to_float(params[:challenge_goal][:start_body_fat].to_f)
+        # params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f)
         params.require(:challenge_goal).permit(:start_weight, :start_body_fat, :start_calorie_goal, :challenge_id)
     end
 

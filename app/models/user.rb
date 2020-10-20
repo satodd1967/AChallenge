@@ -8,5 +8,9 @@ class User < ApplicationRecord
     has_secure_password
 
     validates :username, presence: true
+    validates :email, presence: true
+    validates :email, exclusion: {in: User.all.map {|user| user.email},
+        message: "%{value} is already in use." }
+    validates :password, presence: true
 
 end

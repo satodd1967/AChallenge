@@ -12,5 +12,7 @@ class User < ApplicationRecord
     validates :email, exclusion: {in: User.all.map {|user| user.email},
         message: "%{value} is already in use." }
     validates :password, presence: true
+    validates :password, format: { with: /\A(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[[:^alnum:]])/x,
+        message: "must contain at least 8 characters, one lowercase, one upercase, one number and one symbol." }
 
 end

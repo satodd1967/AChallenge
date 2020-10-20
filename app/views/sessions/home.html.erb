@@ -7,6 +7,8 @@ body {
 }
 </style>
 
+<%= render partial: 'layouts/errors', locals: {object: @user} %>
+
 <div class="firstpage">
   <div class="logo-text">
     <h1 style="text-align: center;">Accountability Challenge</h1>
@@ -17,11 +19,11 @@ body {
     <%= form_for :user, url:'/login' do |f| %>
     
         <%= f.label :email %>
-        <%= f.email_field :email, required: true %>
+        <%= f.email_field :email %>
         <br>
         <br>
         <%= f.label :password %>
-        <%= f.password_field :password, required: true %>
+        <%= f.password_field :password %>
         <br>
         <br>
         <%= f.submit "login" %>

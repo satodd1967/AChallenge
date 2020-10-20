@@ -11,6 +11,8 @@ class User < ApplicationRecord
     validates :email, presence: true
     validates :email, exclusion: {in: User.all.map {|user| user.email},
         message: "%{value} is already in use." }
+    validates :email, format: { with: /\A[a-zA-Z0-9.!\#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\z/,
+        message: "must be a valid email address" }
     validates :password, presence: true
     validates :password, format: { with: /\A(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[[:^alnum:]])/x,
         message: "must contain at least 8 characters, one lowercase, one upercase, one number and one symbol." }

@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to user_path(user)
         else
-            @user = User.create(email: auth[:info][:email]) do |user|
+            @user = User.new(email: auth[:info][:email]) do |user|
                 user.username = auth[:info][:name]
                 user.password = "1aA!#{SecureRandom.hex(10)}"
             end

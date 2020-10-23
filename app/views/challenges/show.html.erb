@@ -26,3 +26,20 @@
     <li>Points Met Active Calorie Goal: <%= @challenge.points_met_active_calorie_goal %></li>
     <br>
 </ul>
+<h2>Diary Logs</h2>
+<ul>
+  <% @challenge.log_scores.each do |ls| %>
+    <li><%= "#{ls.log.user.username}" %></li>
+    <li><%= "Log Date: #{ls.log.log_date}" %></li>
+    <li><%= "Worked Out: #{ls.log.worked_out}" %></li>
+    <li><%= "Tracked Food: #{ls.log.tracked_food}" %></li>
+    <li><%= "Weight: #{ls.log.weight}" %></li>
+    <li><%= "Body Fat %: #{to_percent(ls.log.body_fat)}" %></li>
+    <li><%= "Active Calories: #{ls.log.active_calories}" %></li>
+    <li><%= "Calories: #{ls.log.calories}" %></li>
+    <li><%= "Total Points: #{ls.total_points}" %></li>
+    <br>
+    <br>
+    <% end %>
+    <br>
+</ul>

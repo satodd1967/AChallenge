@@ -14,6 +14,9 @@ class Challenge < ApplicationRecord
       ls.log
     end
   end
-      
+
+  def ranking
+    ChallengeGoal.where(challenge_id: self.id).joins(:log_scores).group(:challenge_goal_id).order('sum_total_points DESC').sum(:total_points)
+  end 
   
 end

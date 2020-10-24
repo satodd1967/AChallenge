@@ -26,6 +26,12 @@
     <li>Points Met Active Calorie Goal: <%= @challenge.points_met_active_calorie_goal %></li>
     <br>
 </ul>
+<h2>Ranking</h2>
+<ul>
+    <% @challenge.ranking.each_with_index do |place, i| %>
+        <li><%= "#{i + 1} - #{ChallengeGoal.find_by(id: place[0]).user.username} with #{place[1]} points" %></li>
+    <% end %>
+</ul>
 <h2>Diary Logs</h2>
 <ul>
   <% @challenge.log_scores.each do |ls| %>

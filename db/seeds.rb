@@ -137,3 +137,7 @@ end
 @challenge.ranking.each_with_index do |place, i|
     puts "#{i + 1} - #{place[1]} points #{ChallengeGoal.find_by(id: place[0]).user.username}"
 end
+
+c.ranking.keys.index(c.challenge_goals.find_by(user_id: kris.id).id)
+
+c.challenge_goals.find_by(user_id: kris.id)

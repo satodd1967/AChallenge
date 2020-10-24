@@ -104,4 +104,14 @@ Log.all.each do |log|
     end
 end
 
+# c = Challenge.first
+# points = c.log_scores.group(:challenge_goal_id).sum(:total_points)
+# @rank = {}
+# @rank_two = []
+# points.each do |k, v|
+#     @cg = ChallengeGoal.find_by(id: k)
+#     @rank[:user] = @cg.user
+#     @rank[:tota_points] = v
+#     @rank_two << @rank
+# end
 

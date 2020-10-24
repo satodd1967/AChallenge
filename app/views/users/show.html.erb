@@ -10,7 +10,7 @@
 </ul>
 <h2>Diary Logs</h2>
 <ul>
-  <% @user.logs.each do |log| %>
+  <% @user.logs.last_first.each do |log| %>
     <li><%= link_to "#{log.log_date} - Click to edit", log_path(log) %></li>
     <li><%= "Worked Out: #{log.worked_out}" %></li>
     <li><%= "Tracked Food: #{log.tracked_food}" %></li>

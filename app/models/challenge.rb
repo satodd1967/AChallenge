@@ -30,10 +30,6 @@ class Challenge < ApplicationRecord
     ChallengeGoal.where(challenge_id: self.id).joins(:log_scores).group(:challenge_goal_id).order('sum_total_points DESC').sum(:total_points)
   end
 
-  def validatable_presence
-    self.attribute_names.select {|attr| attr != "id" && attr != "created_at" && attr != "updated_at"}
-  end
-
   def not_in_past
     if self.start_date < Date.current.to_s
       errors.add(:start_date, "cannot be in the past" )

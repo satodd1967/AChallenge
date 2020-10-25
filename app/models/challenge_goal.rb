@@ -17,7 +17,7 @@ class ChallengeGoal < ApplicationRecord
 
     def cg_create_log_scores
       self.user.logs.each do |log|
-        if log.log_date >= self.challenge.start_date && log.log_date <= cg.challenge.end_date
+        if log.log_date >= self.challenge.start_date && log.log_date <= self.challenge.end_date
             @ls = self.log_scores.build
             @ls.log_id = log.id
             if @ls.log.worked_out == true

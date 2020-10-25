@@ -3,4 +3,5 @@
 <h4>Duration <%= @challenge_goal.challenge.duration %> weeks</h4>
 <br>
 <br>
+<%= render partial: 'layouts/errors', locals: {object: @challenge_goal} %>
 <%= render partial: 'form', locals: {challenge_gaol: @challenge_goal} %>

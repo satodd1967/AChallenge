@@ -1,6 +1,7 @@
 <h1>Edit the <%= @challenge.name %></h1>
 <h4>Start Date: <%= @challenge.start_date %> End Date: <%= @challenge.end_date %></h4>
 
+<%= render partial: 'layouts/errors', locals: {object: @challenge} %>
 <%= render partial: 'form', locals: {challenge: @challenge} %>
 <br>
 <%= button_to "Delete", challenge_path(@challenge), :method => :delete %>

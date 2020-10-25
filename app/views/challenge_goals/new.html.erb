@@ -4,6 +4,7 @@
 <h4>Description: <h5>- <%= @challenge_goal.challenge.description %></h5></h4>
 <br>
 <br>
+<%= render partial: 'layouts/errors', locals: {object: @challenge_goal} %>
 <%= render partial: 'form', locals: {challenge_gaol: @challenge_goal} %>
 <br>
 <%= button_to "Don't Join", user_path(current_user), :method => :get %>

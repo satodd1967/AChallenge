@@ -13,12 +13,9 @@ class Challenge < ApplicationRecord
       }
   validates :name, uniqueness: true
   validates :description, length: { maximum: 75 }
-  validate :not_in_past
-
+  # validate :not_in_past
+  validates :duration, numericality: { less_than: 30 }
   
-  # validates :username, exclusion: {in: User.all.map {|user| user.username},
-  #     message: "%{value} is already in use." }
-
   def challenge_owner
     self.user
   end

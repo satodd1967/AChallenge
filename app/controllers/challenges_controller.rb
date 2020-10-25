@@ -18,6 +18,7 @@ class ChallengesController < ApplicationController
         if @challenge.save
             redirect_to new_challenge_challenge_goal_path(@challenge.id)
         else
+            @challenge.start_date = nil
             render :new
         end
     end

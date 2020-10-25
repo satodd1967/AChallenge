@@ -32,7 +32,9 @@ class ChallengesController < ApplicationController
 
     def update
         @challenge.update(challenge_params)
-        @challenge.end_date = (@challenge.start_date.to_date + (@challenge.duration*7)).to_s
+        if @challenge.end_date
+            @challenge.end_date = (@challenge.start_date.to_date + (@challenge.duration*7)).to_s
+        end
         if @challenge.save
             @challenge.users.each do |user|
                 user.logs.each do |log|

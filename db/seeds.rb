@@ -104,3 +104,5 @@ Log.all.each do |log|
     end
 end
 
+
+Challenge.attribute_names.select {|attr| attr != "id" && attr != "created_at" && attr != "updated_at"}

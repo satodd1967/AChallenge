@@ -6,12 +6,7 @@ class ChallengeGoal < ApplicationRecord
   validates_presence_of attribute_names.select {
     |attr| attr != "id" &&
      attr != "created_at" &&
-      attr != "updated_at" &&
-       attr != "end_date"
-      }
-  validates :name, uniqueness: true
-  validates :description, length: { maximum: 75 }
-  validate :not_in_past
-  validates :duration, numericality: { less_than: 30 }
+      attr != "updated_at" 
+    }
   
 end

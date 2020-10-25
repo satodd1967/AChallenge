@@ -35,8 +35,8 @@ class Challenge < ApplicationRecord
   end
 
   def not_in_past
-    if self.start_date < Time.current.strftime("%y-%m-%d")
-      errors.add(:start_date, "Start date cannot be in the past" )
+    if self.start_date < Date.current.to_s
+      errors.add(:start_date, "cannot be in the past" )
     end
   end
   

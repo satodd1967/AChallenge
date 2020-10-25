@@ -15,6 +15,7 @@ class ChallengeGoalsController < ApplicationController
         params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f)
         @challenge_goal = current_user.challenge_goals.build(challenge_goal_params)
         if @challenge_goal.save
+            @challenge_goal.cg_create_log_scores
             redirect_to user_path(current_user)
         else
             render :new

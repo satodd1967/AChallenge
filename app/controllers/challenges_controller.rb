@@ -11,8 +11,9 @@ class ChallengesController < ApplicationController
     end
     
     def create
+        binding.pry
         @challenge = current_user.owned_challenges.build(challenge_params)
-        if @challenge.start_date && @challenge.duration
+        if @challenge.start_date && @challenge.start_date != "" && @challenge.duration
             @challenge.end_date = (@challenge.start_date.to_date + (@challenge.duration*7)).to_s
         end
         if @challenge.save

@@ -14,6 +14,7 @@ class Challenge < ApplicationRecord
   validates :name, uniqueness: true
   validates :description, length: { maximum: 75 }
   validate :not_in_past
+  # validate :not_blank
   validates :duration, numericality: { less_than: 30 }
 
   # Should have a validation here that doesn't let someone shorten the duration of a challenge
@@ -38,5 +39,11 @@ class Challenge < ApplicationRecord
       errors.add(:start_date, "cannot be in the past" )
     end
   end
+
+  # def not_blank
+  #   if self.start_date == ""
+  #     errors.add(:start_date, "cannot be blank")
+  #   end
+  # end
   
 end

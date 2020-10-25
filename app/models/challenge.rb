@@ -15,6 +15,9 @@ class Challenge < ApplicationRecord
   validates :description, length: { maximum: 75 }
   validate :not_in_past
   validates :duration, numericality: { less_than: 30 }
+
+  # Should have a validation here that doesn't let someone shorten the duration of a challenge
+  # to make it shorter than the most recent log_date.
   
   def challenge_owner
     self.user

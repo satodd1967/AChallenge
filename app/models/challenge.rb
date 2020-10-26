@@ -13,7 +13,7 @@ class Challenge < ApplicationRecord
       }
   validates :name, uniqueness: true
   validates :description, length: { maximum: 75 }
-  validate :not_in_past
+  validate :not_in_past, on: :create
   # validate :not_blank
   validates :duration, numericality: { less_than: 30 }
 
@@ -35,7 +35,7 @@ class Challenge < ApplicationRecord
   end
 
   def not_in_past
-    if self.start_date < Date.current.to_s
+    if self.start_date < (Date.current - 1).to_s
       errors.add(:start_date, "cannot be in the past" )
     end
   end

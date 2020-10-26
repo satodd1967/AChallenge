@@ -1,3 +1,4 @@
 <h1>Create a new diary log</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @log} %>
 <%= render partial: 'form', locals: {log: @log} %>

@@ -1,6 +1,6 @@
 <%= form_for log do |f| %>
 
-    <% if log.log_date %>
+    <% if log.log_date && log.log_date != "" %>
         <%= f.hidden_field :log_date %>
     <% else %>
         <%= f.label :log_date %>

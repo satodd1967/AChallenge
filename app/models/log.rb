@@ -15,6 +15,8 @@ class Log < ApplicationRecord
       attr != "log_date" 
     }, greater_than: 0
 
+    validates :log_date, uniqueness: true
+
   scope :last_first, -> { order(log_date: :desc) }
 
   def create_log_scores

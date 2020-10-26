@@ -2,6 +2,18 @@ class Log < ApplicationRecord
   belongs_to :user
   has_many :log_scores, :dependent => :destroy
 
+  validates_presence_of attribute_names.select {
+    |attr| attr != "id" &&
+     attr != "created_at" &&
+      attr != "updated_at" &&
+       attr != "end_date"
+      }
+  validates :name, uniqueness: true
+  validates :description, length: { maximum: 75 }
+  validate :not_in_past
+  # validate :not_blank
+  validates :duration, numericality: { less_than: 30 }
+
   scope :last_first, -> { order(log_date: :desc) }
 
   def create_log_scores

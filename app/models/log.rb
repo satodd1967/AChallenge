@@ -6,13 +6,18 @@ class Log < ApplicationRecord
     |attr| attr != "id" &&
      attr != "created_at" &&
       attr != "updated_at" &&
-       attr != "end_date"
+       attr != "end_date" &&
+       attr != "worked_out" &&
+       attr != "tracked_food"
       }
+
   validates_numericality_of attribute_names.select {
     |attr| attr != "id" &&
      attr != "created_at" &&
       attr != "updated_at" &&
-      attr != "log_date" 
+      attr != "log_date" &&
+      attr != "worked_out" &&
+      attr != "tracked_food"
     }, greater_than: 0
 
     validates :log_date, uniqueness: true

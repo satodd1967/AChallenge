@@ -1,5 +1,13 @@
-<h1>Log for <%= @log.log_date %></h1>
+<h1>Log for <%= @log.user.username %> on <%= @log.log_date %></h1>
+<br>
 
-<%= render partial: 'form', locals: {log: @log} %>
+<ul>
+    <% define_attributes(@log).each do |a_name, a_value| %>
+        <li><%= reset_attributes(a_name).titleize %>: <%= a_value %></li>
+        <br>
+    <% end %>
+</ul>
+
+<%= button_to "Edit", edit_log_path(@log), :method => :get %>
 <br>
 <%= button_to "Delete", log_path(@log), :method => :delete %>

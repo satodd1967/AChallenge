@@ -8,11 +8,8 @@
     <% if challenge.users.include?(current_user) && challenge.ranking != {} && challenge.ranking.keys.index(challenge.challenge_goals.find_by(user_id: current_user.id).id) %>
         <li><%= "You are in #{(challenge.ranking.keys.index(challenge.challenge_goals.find_by(user_id: current_user.id).id).to_i + 1).ordinalize} place with #{challenge.ranking[challenge.challenge_goals.find_by(user_id: current_user.id).id]} points" %></li>
     <% else %>
-        <li><%= link_to "Join this challenge!", new_challenge_challenge_goal_path(challenge.id), method: "get" %>
+        <li><%= link_to "Join this challenge!", new_challenge_challenge_goal_path(challenge.id), method: "get" %></li>
     <% end %>
     <br>
-    <br>
   <% end %>
-  <%= link_to "Create a new challenge!", new_challenge_path, method: "get" %>
   </ul>
-<br>

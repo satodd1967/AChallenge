@@ -6,8 +6,8 @@
     <li><%= "Owner: #{challenge.challenge_owner.username}" %></li>
     <li>Description<br>
         - <%= "#{challenge.description}" %></li>
-    <% if challenge.users.include?(current_user) && challenge.ranking != {} && challenge.ranking.keys.index(challenge.challenge_goals.find_by(user_id: current_user.id).id) %>
-        <li><%= "You are in #{(challenge.ranking.keys.index(challenge.challenge_goals.find_by(user_id: current_user.id).id).to_i + 1).ordinalize} place with #{challenge.ranking[challenge.challenge_goals.find_by(user_id: current_user.id).id]} points" %></li>
+    <% if challenge.users.include?(current_user) && challenge.ranking != {} && challenge.user_rank(current_user) %>
+        <li><%= "You are in #{challenge.user_rank(current_user)} place with #{challenge.ranking[challenge.challenge_goals.find_by(user_id: current_user.id).id]} points" %></li>
     <% else %>
         <li><%= link_to "Join this challenge!", new_challenge_challenge_goal_path(challenge.id), method: "get" %></li>
     <% end %>

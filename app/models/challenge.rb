@@ -14,7 +14,6 @@ class Challenge < ApplicationRecord
   validates :name, uniqueness: true
   validates :description, length: { maximum: 75 }
   validate :not_in_past, on: :create
-  # validate :not_blank
   validates :duration, numericality: { less_than: 30 }
   
   def challenge_owner
@@ -29,6 +28,10 @@ class Challenge < ApplicationRecord
 
   def ranking
     ChallengeGoal.where(challenge_id: self.id).joins(:log_scores).group(:challenge_goal_id).order('sum_total_points DESC').sum(:total_points)
+  end
+
+  def user_rank(user_object)
+    (self.ranking.keys.index(self.challenge_goals.find_by(user_id: user_object.id).id).to_i + 1).ordinalize
   end
 
   def not_in_past

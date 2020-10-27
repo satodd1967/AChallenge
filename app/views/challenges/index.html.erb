@@ -2,7 +2,8 @@
 
 <ul>
   <% @challenges.each do |challenge| %>
-    <li><%= link_to "#{challenge.name} #{"*Owner*" if challenge.challenge_owner == @user}", challenge_path(challenge) %></li>
+    <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>
+    <li><%= "Owner: #{challenge.challenge_owner.username}" %></li>
     <li>Description<br>
         - <%= "#{challenge.description}" %></li>
     <% if challenge.users.include?(current_user) && challenge.ranking != {} && challenge.ranking.keys.index(challenge.challenge_goals.find_by(user_id: current_user.id).id) %>

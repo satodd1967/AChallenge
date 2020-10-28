@@ -1,8 +1,8 @@
 <ul>
     <% @user.challenges.each do |challenge| %>
         <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>
-        <% if challenge.ranking != {} && challenge.ranking.keys.index(challenge.challenge_goals.find_by(user_id: @user.id).id) %>
-            <li><%= "You are in #{(challenge.ranking.keys.index(challenge.challenge_goals.find_by(user_id: @user.id).id).to_i + 1).ordinalize} place with #{challenge.ranking[challenge.challenge_goals.find_by(user_id: @user.id).id]} points" %></li>
+        <% if challenge.should_be_ranked(@user) %>
+            <li><%= "You are in #{challenge.user_rank(@user)} place with #{challenge.rank_points(@user)} points" %></li>
         <% end %>
         <li>Description<br>  <%= "-    #{challenge.description}" %><br></li>
         <%= link_to "View your goals", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %><br>

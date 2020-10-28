@@ -31,11 +31,16 @@ class Challenge < ApplicationRecord
   end
 
   def user_rank(user_object)
-    (self.ranking.keys.index(self.challenge_goals.find_by(user_id: user_object.id).id).to_i + 1).ordinalize
+    rank = self.ranking.keys.index(self.challenge_goals.find_by(user_id: user_object.id).id)
+    if rank
+      (rank.to_i + 1).ordinalize
+    else
+      "last"
+    end
   end
 
   def rank_points(user_object)
-    self.ranking[self.challenge_goals.find_by(user_id: user_object.id).id]
+    self.ranking[self.challenge_goals.find_by(user_id: user_object.id).id] ||= "0"
   end
 
   def should_be_ranked(user_object)

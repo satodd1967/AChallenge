@@ -38,6 +38,10 @@ class Challenge < ApplicationRecord
     self.ranking[self.challenge_goals.find_by(user_id: user_object.id).id]
   end
 
+  def should_be_ranked(user_object)
+    self.users.include?(user_object) && self.ranking != {} && self.user_rank(user_object)
+  end
+
   def not_in_past
     if self.start_date < (Date.current - 1).to_s
       errors.add(:start_date, "cannot be in the past" )

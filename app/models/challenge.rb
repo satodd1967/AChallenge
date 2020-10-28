@@ -42,6 +42,10 @@ class Challenge < ApplicationRecord
     self.users.include?(user_object) && self.ranking != {} && self.user_rank(user_object)
   end
 
+  def participating(user_object)
+    !self.users.include?(user_object)
+  end
+
   def not_in_past
     if self.start_date < (Date.current - 1).to_s
       errors.add(:start_date, "cannot be in the past" )

@@ -5,8 +5,8 @@
 <% end %></h4>
 <h4>Start Date: <%= @challenge.start_date %> End Date: <%= @challenge.end_date %></h4>
 <h4>Duration <%= @challenge.duration %> weeks</h4>
-<% if @challenge.challenge_goals.where(user_id: current_user) != [] %>
-    <%= link_to "View your goals", challenge_goal_path(@challenge.challenge_goals.where(user_id: current_user).first.id) %>
+<% if @challenge.has_goals(current_user) %>
+    <%= link_to "View your goals", challenge_goal_path(@chalenge.find_user_challenge_goal(current_user)) %>
 <% end %>
 <br>
 <br>

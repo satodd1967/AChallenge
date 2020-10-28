@@ -56,5 +56,13 @@ class Challenge < ApplicationRecord
       errors.add(:start_date, "cannot be in the past" )
     end
   end
+
+  def has_goals(user_object)
+    self.challenge_goals.where(user_id: user_object) != []
+  end
+
+  def find_user_challenge_goal(user_object)
+    user_object.challenge_goals.find_by(challenge: self).id
+  end
   
 end

@@ -27,7 +27,8 @@ class ChallengesController < ApplicationController
         redirect_to root_path if !@challenge
     end
 
-    def edit 
+    def edit
+        redirect_to challenge_path(@challenge) if !@challenge.challenge_owner == current_user
     end
 
     def update

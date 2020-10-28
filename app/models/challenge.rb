@@ -34,6 +34,10 @@ class Challenge < ApplicationRecord
     (self.ranking.keys.index(self.challenge_goals.find_by(user_id: user_object.id).id).to_i + 1).ordinalize
   end
 
+  def rank_points(user_object)
+    self.ranking[self.challenge_goals.find_by(user_id: user_object.id).id]
+  end
+
   def not_in_past
     if self.start_date < (Date.current - 1).to_s
       errors.add(:start_date, "cannot be in the past" )

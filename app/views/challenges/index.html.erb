@@ -7,7 +7,7 @@
     <li>Description<br>
         - <%= "#{challenge.description}" %></li>
     <% if challenge.users.include?(current_user) && challenge.ranking != {} && challenge.user_rank(current_user) %>
-        <li><%= "You are in #{challenge.user_rank(current_user)} place with #{challenge.ranking[challenge.challenge_goals.find_by(user_id: current_user.id).id]} points" %></li>
+        <li><%= "You are in #{challenge.user_rank(current_user)} place with #{challenge.rank_points(current_user)} points" %></li>
     <% else %>
         <li><%= link_to "Join this challenge!", new_challenge_challenge_goal_path(challenge.id), method: "get" %></li>
     <% end %>

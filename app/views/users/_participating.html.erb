@@ -3,7 +3,7 @@
         <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>
         <%= render partial: 'challenges/ranking', locals: {challenge: challenge} %>
         <li>Description<br>  <%= "-    #{challenge.description}" %><br></li>
-        <%= link_to "View your goals", challenge_goal_path(challenge.challenge_goals.where(user_id: @user.id).first.id) %><br>
+        <%= button_to "View your goals", challenge_goal_path(challenge.find_user_challenge_goal(@user)), :method => :get %>
         <%= button_to "Quit Challenge", challenge_goal_path(challenge.challenge_goals.where(user: @user).first.id), :method => :delete %>
         <% if challenge.challenge_owner == @user %>
             <%= button_to "Edit Challenge", edit_challenge_path(challenge), :method => :get %>

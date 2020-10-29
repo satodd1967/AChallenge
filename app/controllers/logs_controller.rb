@@ -1,6 +1,8 @@
 class LogsController < ApplicationController
 
     before_action :find_log, only: [:show, :edit, :update, :destroy]
+    before_action :convert_decimal, only: [:show, :edit]
+    before_action :convert_percent, only: [:create, :update]
     before_action :redirect_if_not_logged_in 
 
     def new
@@ -8,7 +10,6 @@ class LogsController < ApplicationController
     end
 
     def create
-        params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f)
         @log = current_user.logs.build(log_params)
         if @log.save
             @log.create_log_scores
@@ -19,15 +20,14 @@ class LogsController < ApplicationController
     end
     
     def show
-        @log.body_fat = to_percent(@log.body_fat)
         redirect_to root_path if !@log  
     end
 
     def edit
+        redirect_to root_path if !@log
     end
 
     def update
-        params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f)
         @log.update(log_params)
         if @log.save
             @log.update_log_scores
@@ -50,6 +50,14 @@ class LogsController < ApplicationController
 
     def find_log
         @log = Log.find_by_id(params[:id])
+    end
+
+    def convert_decimal
+        @log.body_fat = to_percent(@log.body_fat)
+    end
+
+    def convert_percent
+        params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f) 
     end
 
 

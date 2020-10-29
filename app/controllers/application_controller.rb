@@ -30,7 +30,11 @@ private
              attr != "user_id" &&
               attr != "updated_at" &&
                attr != "created_at" &&
-                attr != "log_date"
+                attr != "log_date" &&
+                attr != "name" &&
+                attr != "start_date" &&
+                attr != "end_date" &&
+                attr != "duration"
             }
     end
 

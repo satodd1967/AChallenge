@@ -6,27 +6,15 @@
 <h4>Start Date: <%= @challenge.start_date %> End Date: <%= @challenge.end_date %></h4>
 <h4>Duration <%= @challenge.duration %> weeks</h4>
 <% if @challenge.has_goals(current_user) %>
-    <%= link_to "View your goals", challenge_goal_path(@chalenge.find_user_challenge_goal(current_user)) %>
+    <%= link_to "View your goals", challenge_goal_path(@challenge.find_user_challenge_goal(current_user)) %>
 <% end %>
 <br>
 <br>
 <ul>
-    <li>Description<br>-<%= @challenge.description %></li>
-    <br>
-    <li>Active Calorie Goal: <%= @challenge.active_calorie_goal %></li>
-    <br>
-    <li>Points Worked Out: <%= @challenge.points_worked_out %></li>
-    <br>
-    <li>Points Tracked Food: <%= @challenge.points_tracked_food %></li>
-    <br>
-    <li>Points Met Calorie Goal: <%= @challenge.points_met_calorie_goal %></li>
-    <br>
-    <li>Points Maintain Weight: <%= @challenge.points_maintain_weight %></li>
-    <br>
-    <li>Points Maintain Body Fat: <%= @challenge.points_maintain_body_fat %></li>
-    <br>
-    <li>Points Met Active Calorie Goal: <%= @challenge.points_met_active_calorie_goal %></li>
-    <br>
+    <% define_attributes(@challenge).each do |a_name, a_value| %>
+        <li><%= reset_attributes(a_name).titleize %>: <%= a_value %></li>
+        <br>
+    <% end %>
 </ul>
 <h2>Ranking</h2>
 <ul>

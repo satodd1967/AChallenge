@@ -4,7 +4,7 @@
 <h2>View challenges by owner</h2>
 <ul>
   <% @challenges.each do |challenge| %>
-    <li><%= link_to "#{challenge.user.username}", user_challenges_path(challenge.user) %></li>
+    <li><%= link_to "#{challenge.user.username}", user_challenges_path(challenge.user.id) %></li>
     <br>
   <% end %>
 </ul>

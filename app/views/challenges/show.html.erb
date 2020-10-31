@@ -1,8 +1,8 @@
 <h1><%= @challenge.name %></h1>
-<h4>Challenge Owner: <%= @challenge.challenge_owner.username %>
+<h4>Challenge Owner: <%= @challenge.user.username %>
 <br>
 <br>
-<% if @challenge.challenge_owner == current_user %>
+<% if @challenge.user == current_user %>
 <%= button_to "Edit", edit_challenge_path(@challenge), :method => :get %>
 <% end %></h4>
 <% if @challenge.has_goals(current_user) %>

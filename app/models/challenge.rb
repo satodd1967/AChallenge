@@ -15,10 +15,6 @@ class Challenge < ApplicationRecord
   validates :description, length: { maximum: 75 }
   validate :not_in_past, on: :create
   validates :duration, numericality: { less_than: 30 }
-  
-  def challenge_owner
-    self.user
-  end
 
   def logs
     self.log_scores.each do |ls|

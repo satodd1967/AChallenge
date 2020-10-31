@@ -16,9 +16,15 @@ Rails.application.routes.draw do
     resources :challenge_goals, only: [:new, :create]
   end
 
+  resources :users
+
+  resources :users, only: [] do
+    resources :owned_challenges
+  end
+
   resources :logs
   resources :challenge_goals
-  resources :users
+
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 

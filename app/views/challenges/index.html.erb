@@ -1,12 +1,20 @@
 <h1>All Challenges</h1>
 
+<h2>View challenges by owner</h2>
+<ul>
+  <% @challenges.each do |challenge| %>
+    <li><%= link_to "#{challenge.user.username}", challenge_path(challenge) %></li>
+    <br>
+  <% end %>
+</ul>
+<br>
 <ul>
   <% @challenges.each do |challenge| %>
     <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>
-    <li><%= "Owner: #{challenge.challenge_owner.username}" %></li>
+    <li><%= "Owner: #{challenge.user.username}" %></li>
     <li>Description<br>
         - <%= "#{challenge.description}" %></li>
     <%= render partial: 'ranking', locals: {challenge: challenge} %>
     <br>
   <% end %>
-  </ul>
+</ul>

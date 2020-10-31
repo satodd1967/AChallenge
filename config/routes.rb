@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :users, only: [] do
-    resources :owned_challenges
+    resources :challenges
   end
 
   resources :logs

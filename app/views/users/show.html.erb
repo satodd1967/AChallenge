@@ -1,4 +1,7 @@
 <h1>Welcome <%= @user.username %></h1>
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
 <h2>Your Challenges</h2>
 <ul>
     <li><h4>Participating</h4></li>

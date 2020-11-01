@@ -52,6 +52,11 @@ class LogsController < ApplicationController
         @log = Log.find_by_id(params[:id])
     end
 
+    def log_checks
+        redirect_to root_path if !@log
+        if @log.user != current_user || 
+    end
+
     def convert_decimal
         @log.body_fat = to_percent(@log.body_fat)
     end

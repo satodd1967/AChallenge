@@ -1,135 +1,142 @@
 class Log < ApplicationRecord
-    include convert
 
-    belongs_to :user
-    has_many :log_scores, :dependent => :destroy
+    include Convert
 
-    before_save :convert_percent
+  belongs_to :user
+  has_many :log_scores, :dependent => :destroy
 
-    validates_presence_of attribute_names.select {
-      |attr| attr != "id" &&
-       attr != "created_at" &&
-        attr != "updated_at" &&
-         attr != "end_date" &&
-         attr != "worked_out" &&
-         attr != "tracked_food"
-        }
+  before_save :convert_percent
 
-    validates_numericality_of attribute_names.select {
-      |attr| attr != "id" &&
-       attr != "created_at" &&
-        attr != "updated_at" &&
-        attr != "log_date" &&
-        attr != "worked_out" &&
-        attr != "tracked_food"
-      }, greater_than: 0
+  validates_presence_of attribute_names.select {
+    |attr| attr != "id" &&
+     attr != "created_at" &&
+      attr != "updated_at" &&
+       attr != "end_date" &&
+       attr != "worked_out" &&
+       attr != "tracked_food"
+      }
+
+  validates_numericality_of attribute_names.select {
+    |attr| attr != "id" &&
+     attr != "created_at" &&
+      attr != "updated_at" &&
+      attr != "log_date" &&
+      attr != "worked_out" &&
+      attr != "tracked_food"
+    }, greater_than: 0
 
     validates :log_date, uniqueness: true
 
-    scope :last_first, -> { order(log_date: :desc) }
+  scope :last_first, -> { order(log_date: :desc) }
 
-    def create_log_scores
-      self.user.challenge_goals.each do |cg|
-        if self.log_date >= cg.challenge.start_date && self.log_date <= cg.challenge.end_date
-            @ls = cg.log_scores.build
-            @ls.log_id = self.id
-            if @ls.log.worked_out == true
-                @ls.points_worked_out = @ls.challenge_goal.challenge.points_worked_out
-            else
-                @ls.points_worked_out = 0
-            end
-            if @ls.log.tracked_food == true
-                @ls.points_tracked_food = @ls.challenge_goal.challenge.points_tracked_food
-            else
-                @ls.points_tracked_food = 0
-            end
-            if @ls.log.calories <= @ls.challenge_goal.start_calorie_goal
-                @ls.points_met_calorie_goal = @ls.challenge_goal.challenge.points_met_calorie_goal
-            else
-                @ls.points_met_calorie_goal = 0
-            end
-            if @ls.log.weight <= @ls.challenge_goal.start_weight
-                @ls.points_maintain_weight = @ls.challenge_goal.challenge.points_maintain_weight
-            else
-                @ls.points_maintain_weight = 0
-            end
-            if @ls.log.body_fat <= @ls.challenge_goal.start_body_fat
-                @ls.points_maintain_body_fat = @ls.challenge_goal.challenge.points_maintain_body_fat
-            else
-                @ls.points_maintain_body_fat = 0
-            end
-            if @ls.log.active_calories >= @ls.challenge_goal.challenge.active_calorie_goal
-                @ls.points_met_active_calorie_goal = @ls.challenge_goal.challenge.points_met_active_calorie_goal
-            else
-                @ls.points_met_active_calorie_goal = 0
-            end
-            @ls.total_points = [
-                @ls.points_worked_out,
-                @ls.points_tracked_food,
-                @ls.points_met_calorie_goal,
-                @ls.points_maintain_weight,
-                @ls.points_maintain_body_fat,
-                @ls.points_met_active_calorie_goal
-            ].sum
-            @ls.save
-        end
-      end
-    end
-
-    def update_log_scores
-      self.log_scores.each do |ls|
-          if ls.log.worked_out == true
-              ls.points_worked_out = ls.challenge_goal.challenge.points_worked_out
+  def create_log_scores
+    self.user.challenge_goals.each do |cg|
+      if self.log_date >= cg.challenge.start_date && self.log_date <= cg.challenge.end_date
+          @ls = cg.log_scores.build
+          @ls.log_id = self.id
+          if @ls.log.worked_out == true
+              @ls.points_worked_out = @ls.challenge_goal.challenge.points_worked_out
           else
-              ls.points_worked_out = 0
+              @ls.points_worked_out = 0
           end
-          if ls.log.tracked_food == true
-              ls.points_tracked_food = ls.challenge_goal.challenge.points_tracked_food
+          if @ls.log.tracked_food == true
+              @ls.points_tracked_food = @ls.challenge_goal.challenge.points_tracked_food
           else
-              ls.points_tracked_food = 0
+              @ls.points_tracked_food = 0
           end
-          if ls.log.calories <= ls.challenge_goal.start_calorie_goal
-              ls.points_met_calorie_goal = ls.challenge_goal.challenge.points_met_calorie_goal
+          if @ls.log.calories <= @ls.challenge_goal.start_calorie_goal
+              @ls.points_met_calorie_goal = @ls.challenge_goal.challenge.points_met_calorie_goal
           else
-              ls.points_met_calorie_goal = 0
+              @ls.points_met_calorie_goal = 0
           end
-          if ls.log.weight <= ls.challenge_goal.start_weight
-              ls.points_maintain_weight = ls.challenge_goal.challenge.points_maintain_weight
+          if @ls.log.weight <= @ls.challenge_goal.start_weight
+              @ls.points_maintain_weight = @ls.challenge_goal.challenge.points_maintain_weight
           else
-              ls.points_maintain_weight = 0
+              @ls.points_maintain_weight = 0
           end
-          if ls.log.body_fat <= ls.challenge_goal.start_body_fat
-              ls.points_maintain_body_fat = ls.challenge_goal.challenge.points_maintain_body_fat
+          if @ls.log.body_fat <= @ls.challenge_goal.start_body_fat
+              @ls.points_maintain_body_fat = @ls.challenge_goal.challenge.points_maintain_body_fat
           else
-              ls.points_maintain_body_fat = 0
+              @ls.points_maintain_body_fat = 0
           end
-          if ls.log.active_calories >= ls.challenge_goal.challenge.active_calorie_goal
-              ls.points_met_active_calorie_goal = ls.challenge_goal.challenge.points_met_active_calorie_goal
+          if @ls.log.active_calories >= @ls.challenge_goal.challenge.active_calorie_goal
+              @ls.points_met_active_calorie_goal = @ls.challenge_goal.challenge.points_met_active_calorie_goal
           else
-              ls.points_met_active_calorie_goal = 0
+              @ls.points_met_active_calorie_goal = 0
           end
-          ls.total_points = [
-              ls.points_worked_out,
-              ls.points_tracked_food,
-              ls.points_met_calorie_goal,
-              ls.points_maintain_weight,
-              ls.points_maintain_body_fat,
-              ls.points_met_active_calorie_goal
+          @ls.total_points = [
+              @ls.points_worked_out,
+              @ls.points_tracked_food,
+              @ls.points_met_calorie_goal,
+              @ls.points_maintain_weight,
+              @ls.points_maintain_body_fat,
+              @ls.points_met_active_calorie_goal
           ].sum
-          ls.save
+          @ls.save
       end
     end
+  end
 
-    private
+  def update_log_scores
+    self.log_scores.each do |ls|
+        if ls.log.worked_out == true
+            ls.points_worked_out = ls.challenge_goal.challenge.points_worked_out
+        else
+            ls.points_worked_out = 0
+        end
+        if ls.log.tracked_food == true
+            ls.points_tracked_food = ls.challenge_goal.challenge.points_tracked_food
+        else
+            ls.points_tracked_food = 0
+        end
+        if ls.log.calories <= ls.challenge_goal.start_calorie_goal
+            ls.points_met_calorie_goal = ls.challenge_goal.challenge.points_met_calorie_goal
+        else
+            ls.points_met_calorie_goal = 0
+        end
+        if ls.log.weight <= ls.challenge_goal.start_weight
+            ls.points_maintain_weight = ls.challenge_goal.challenge.points_maintain_weight
+        else
+            ls.points_maintain_weight = 0
+        end
+        if ls.log.body_fat <= ls.challenge_goal.start_body_fat
+            ls.points_maintain_body_fat = ls.challenge_goal.challenge.points_maintain_body_fat
+        else
+            ls.points_maintain_body_fat = 0
+        end
+        if ls.log.active_calories >= ls.challenge_goal.challenge.active_calorie_goal
+            ls.points_met_active_calorie_goal = ls.challenge_goal.challenge.points_met_active_calorie_goal
+        else
+            ls.points_met_active_calorie_goal = 0
+        end
+        ls.total_points = [
+            ls.points_worked_out,
+            ls.points_tracked_food,
+            ls.points_met_calorie_goal,
+            ls.points_maintain_weight,
+            ls.points_maintain_body_fat,
+            ls.points_met_active_calorie_goal
+        ].sum
+        ls.save
+    end
+  end
+
+  private
 
     # def to_decimal(float)
     #     float/100
     # end
 
-    def convert_percent
-        if self.body_fat > 1
-            self.body_fat = to_decimal(self.body_fat)
-        end 
-    end
+    # def convert_percent
+    #     if self.body_fat  
+    #         if self.body_fat > 1
+    #             self.body_fat = to_decimal(self.body_fat)
+    #         end
+    #     else
+    #         if self.start_body_fat > 1
+    #             self.start_body_fat = to_decimal(self.start_body_fat)
+    #         end
+    #     end 
+    # end
 
 end

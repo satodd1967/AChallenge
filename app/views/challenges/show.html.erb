@@ -11,19 +11,31 @@
 <br>
 <h4>Start Date: <%= @challenge.start_date %> End Date: <%= @challenge.end_date %></h4>
 <h4>Duration <%= @challenge.duration %> weeks</h4>
-<br>
-<br>
-<ul>
-    <% define_attributes(@challenge).each do |a_name, a_value| %>
-        <li><%= reset_attributes(a_name).titleize %>: <%= a_value %></li>
-        <br>
-    <% end %>
-</ul>
 <h2>Ranking</h2>
 <ul>
     <% @challenge.ranking.each_with_index do |place, i| %>
         <li><%= "#{i + 1} - #{ChallengeGoal.find_by(id: place[0]).user.username} with #{place[1]} points" %></li>
     <% end %>
+</ul>
+<h3>Details</h3>
+<ul>
+    <li>Description<br>  <%= "-    #{@challenge.description}" %><br></li>
+    <br>
+    <li><%= "Challenge ends on: #{@challenge.end_date}" %></li>
+    <br>
+    <li><%= "Active calorie goal: #{@challenge.active_calorie_goal}" %></li>
+    <br>
+    <li><%= "Points worked out: #{@challenge.points_worked_out}" %></li>
+    <br>
+    <li><%= "Points tracked food: #{@challenge.points_tracked_food}" %></li>
+    <br>
+    <li><%= "Points met caloarie goal: #{@challenge.points_met_calorie_goal}" %></li>
+    <br>
+    <li><%= "Points maintain weight: #{@challenge.points_maintain_weight}" %></li>
+    <br>
+    <li><%= "Points maintain body fat: #{@challenge.points_maintain_body_fat}" %></li>
+    <br>
+    <li><%= "Points met active calorie goal: #{@challenge.points_met_active_calorie_goal}" %></li>
 </ul>
 <h2>Diary Logs</h2>
 <ul>

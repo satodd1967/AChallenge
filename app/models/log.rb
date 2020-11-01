@@ -1,6 +1,7 @@
 class Log < ApplicationRecord
   belongs_to :user
   has_many :log_scores, :dependent => :destroy
+  before_save :convert_percent
 
   validates_presence_of attribute_names.select {
     |attr| attr != "id" &&
@@ -115,5 +116,17 @@ class Log < ApplicationRecord
         ls.save
     end
   end
+
+  private
+
+    def to_decimal(float)
+        float/100
+    end
+
+    def convert_percent
+        if self.body_fat > 1
+            self.body_fat = to_decimal(self.body_fat)
+        end 
+    end
 
 end

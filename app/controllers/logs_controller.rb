@@ -3,7 +3,7 @@ class LogsController < ApplicationController
     before_action :find_log, only: [:show, :edit, :update, :destroy]
     before_action :log_checks, only: [:show, :edit, :update, :destroy]
     before_action :convert_decimal, only: [:show, :edit]
-    before_action :convert_percent, only: [:create, :update]
+    # before_action :convert_percent, only: [:create, :update]
     before_action :redirect_if_not_logged_in
 
     def new
@@ -66,9 +66,9 @@ class LogsController < ApplicationController
         @log.body_fat = to_percent(@log.body_fat)
     end
 
-    def convert_percent
-        params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f) 
-    end
+    # def convert_percent
+    #     params[:log][:body_fat] = to_decimal(params[:log][:body_fat].to_f) 
+    # end
 
 
 end

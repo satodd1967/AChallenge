@@ -71,7 +71,7 @@ class ChallengeGoal < ApplicationRecord
 
     def convert_percent
         if self.start_body_fat > 1
-            self.start_body_fat = to_decimal(self.body_fat)
+            self.start_body_fat = to_decimal(self.start_body_fat)
         end 
     end
 

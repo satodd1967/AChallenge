@@ -46,4 +46,9 @@ private
         end
     end
 
+    # def find_object(model)
+    #     instance_variable_set(:"@#{model.class.name.downcase}", model.class.find_by(id: params[:id]))
+    # end
+
+
 end

@@ -3,7 +3,7 @@ class LogsController < ApplicationController
     before_action :find_log, only: [:show, :edit, :update, :destroy]
     before_action :convert_decimal, only: [:show, :edit]
     before_action :convert_percent, only: [:create, :update]
-    before_action :redirect_if_not_logged_in 
+    before_action :redirect_if_not_logged_in
 
     def new
         @log = Log.new

@@ -72,10 +72,16 @@ Specs:
 
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
 
-<!-- A third party omniauth is implemented for facebook -->
+    <!-- A third party omniauth is implemented for facebook -->
 
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes)
+
+    <!-- The user_challenges route is a nested route used in the challenges index page under a section that says view challenges by user.  There are links there that use the nested route to show the challenges index page with only challenges for that user. -->
+
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+
+<!-- The new_challenge_challenge_goal and the challenge_challenge_goals are nested routes used to create a new challenge goal that is tied to an existing challenge. -->
+
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
     <!-- All new and edit forms as well as the user login and signup pages show the appropriate validation errors. -->

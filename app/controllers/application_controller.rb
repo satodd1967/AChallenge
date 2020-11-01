@@ -20,28 +20,6 @@ private
         (float*100).round(2)
     end
 
-    def define_attributes(object)
-        object.attributes.select {
-            |attr| attr != "id" &&
-             attr != "user_id" &&
-              attr != "updated_at" &&
-               attr != "created_at" &&
-                attr != "log_date" &&
-                attr != "name" &&
-                attr != "start_date" &&
-                attr != "end_date" &&
-                attr != "duration"
-            }
-    end
-
-    def reset_attributes(attribute)
-        if attribute == "body_fat"
-            attributes = "body_fat %"
-        else
-            attribute
-        end
-    end
-
     # def find_object(model)
     #     instance_variable_set(:"@#{model.class.name.downcase}", model.class.find_by(id: params[:id]))
     # end

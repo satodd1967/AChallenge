@@ -22,7 +22,7 @@ module Logic
        else
            ls.points_maintain_weight = 0
        end
-       if @ls.log.body_fat <= ls.challenge_goal.start_body_fat
+       if ls.log.body_fat <= ls.challenge_goal.start_body_fat
            ls.points_maintain_body_fat = ls.challenge_goal.challenge.points_maintain_body_fat
        else
            ls.points_maintain_body_fat = 0

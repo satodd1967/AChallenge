@@ -1,7 +1,7 @@
 class ChallengeGoal < ApplicationRecord
 
     include Convert
-    
+
   belongs_to :user
   belongs_to :challenge
   has_many :log_scores, :dependent => :destroy
@@ -67,16 +67,5 @@ class ChallengeGoal < ApplicationRecord
         end
       end
     end
-
-    # def to_decimal(float)
-    #     float/100
-    # end
-
-    # def convert_percent
-    #     if self.start_body_fat > 1
-    #         self.start_body_fat = to_decimal(self.start_body_fat)
-    #     end 
-    # end
-
 
 end

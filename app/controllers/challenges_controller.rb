@@ -3,8 +3,12 @@ class ChallengesController < ApplicationController
     before_action :redirect_if_not_logged_in    
 
     def index
-        binding.pry
-        @challenges = Challenge.all
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @challenges = @user.owned_challenges
+        else
+            @users = User.all
+            @challenges = Challenge.all
+        end
     end
 
     def new

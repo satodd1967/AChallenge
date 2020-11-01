@@ -1,13 +1,20 @@
-<h1>All Challenges</h1>
+<h1>Challenges</h1>
 
-<h2>View challenges by owner</h2>
-<ul>
-  <% @challenges.each do |challenge| %>
-    <li><%= link_to "#{challenge.user.username}", user_challenges_path(challenge.user.id) %></li>
-    <br>
-  <% end %>
-</ul>
-<br>
+<% if @users %>
+  <h2>View challenges by owner</h2>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= link_to "#{user.username} - #{user.owned_challenges.count}", user_challenges_path(user.id) %></li>
+      <br>
+    <% end %>
+  </ul>
+  <h2>All Challenges</h2>
+<% else %>
+  <h2><%= "Viewing all challenges for #{@user.username}" %></h2>
+  <%= button_to "Back to all challenges", challenges_path, :method => :get %>
+  <br>
+  <br>
+<% end %>
 <ul>
   <% @challenges.each do |challenge| %>
     <li><%= link_to "#{challenge.name}", challenge_path(challenge) %></li>

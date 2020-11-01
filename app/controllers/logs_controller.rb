@@ -1,6 +1,7 @@
 class LogsController < ApplicationController
 
     before_action :find_log, only: [:show, :edit, :update, :destroy]
+    before_action :log_checks, only: [:show, :edit, :update, :destroy]
     before_action :convert_decimal, only: [:show, :edit]
     before_action :convert_percent, only: [:create, :update]
     before_action :redirect_if_not_logged_in
@@ -19,12 +20,10 @@ class LogsController < ApplicationController
        end
     end
     
-    def show
-        redirect_to root_path if !@log  
+    def show  
     end
 
     def edit
-        redirect_to root_path if !@log
     end
 
     def update
@@ -53,8 +52,14 @@ class LogsController < ApplicationController
     end
 
     def log_checks
-        redirect_to root_path if !@log
-        if @log.user != current_user || 
+        if !@log
+            redirect_to user_path(current_user)
+            flash[:message] = "Invalid Log"
+        end
+        if @log.user != current_user
+            redirect_to user_path(current_user)
+            flash[:message] = "Not Allowed"
+        end
     end
 
     def convert_decimal

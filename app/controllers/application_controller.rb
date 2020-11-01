@@ -20,10 +20,6 @@ private
         (float*100).round(2)
     end
 
-    # def to_decimal(float)
-    #     float/100
-    # end
-
     def define_attributes(object)
         object.attributes.select {
             |attr| attr != "id" &&

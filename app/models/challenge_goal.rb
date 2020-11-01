@@ -3,6 +3,8 @@ class ChallengeGoal < ApplicationRecord
   belongs_to :challenge
   has_many :log_scores, :dependent => :destroy
 
+  before_save :convert_percent
+
   validates_presence_of attribute_names.select {
     |attr| attr != "id" &&
      attr != "created_at" &&
@@ -61,6 +63,16 @@ class ChallengeGoal < ApplicationRecord
             @ls.save
         end
       end
+    end
+
+    def to_decimal(float)
+        float/100
+    end
+
+    def convert_percent
+        if self.start_body_fat > 1
+            self.start_body_fat = to_decimal(self.body_fat)
+        end 
     end
 
 

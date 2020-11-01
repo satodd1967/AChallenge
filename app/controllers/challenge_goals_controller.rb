@@ -1,7 +1,7 @@
 class ChallengeGoalsController < ApplicationController
     before_action :find_challenge_goal, only: [:show, :edit, :update, :destroy]
     before_action :convert_decimal, only: [:show, :edit]
-    before_action :convert_percent, only: [:create, :update]
+    # before_action :convert_percent, only: [:create, :update]
     before_action :redirect_if_not_logged_in 
 
     def new
@@ -60,9 +60,9 @@ class ChallengeGoalsController < ApplicationController
         @challenge_goal.start_body_fat = to_percent(@challenge_goal.start_body_fat)
     end
 
-    def convert_percent
-        params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f) 
-    end
+    # def convert_percent
+    #     params[:challenge_goal][:start_body_fat] = to_decimal(params[:challenge_goal][:start_body_fat].to_f) 
+    # end
 
 
 end

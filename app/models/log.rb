@@ -1,6 +1,7 @@
 class Log < ApplicationRecord
   belongs_to :user
   has_many :log_scores, :dependent => :destroy
+  
   before_save :convert_percent
 
   validates_presence_of attribute_names.select {

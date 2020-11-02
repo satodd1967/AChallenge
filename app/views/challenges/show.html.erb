@@ -21,21 +21,10 @@
 <ul>
     <li>Description<br>  <%= "-    #{@challenge.description}" %><br></li>
     <br>
-    <li><%= "Challenge ends on: #{@challenge.end_date}" %></li>
-    <br>
-    <li><%= "Active calorie goal: #{@challenge.active_calorie_goal}" %></li>
-    <br>
-    <li><%= "Points worked out: #{@challenge.points_worked_out}" %></li>
-    <br>
-    <li><%= "Points tracked food: #{@challenge.points_tracked_food}" %></li>
-    <br>
-    <li><%= "Points met caloarie goal: #{@challenge.points_met_calorie_goal}" %></li>
-    <br>
-    <li><%= "Points maintain weight: #{@challenge.points_maintain_weight}" %></li>
-    <br>
-    <li><%= "Points maintain body fat: #{@challenge.points_maintain_body_fat}" %></li>
-    <br>
-    <li><%= "Points met active calorie goal: #{@challenge.points_met_active_calorie_goal}" %></li>
+    <% @challenge.show_attributes.each do |k, v| %>
+        <li><%= "#{k}: #{v}" %></li>
+        <br>
+    <% end %>
 </ul>
 <h2>Diary Logs</h2>
 <ul>

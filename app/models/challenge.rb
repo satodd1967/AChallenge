@@ -22,6 +22,19 @@ class Challenge < ApplicationRecord
     end
   end
 
+  def show_attributes
+    self.attributes.select {|k, v| k != "id" &&
+     k != "created_at" &&
+      k != "updated_at" &&
+       k != "name" &&
+        k != "description" &&
+         k != "start_date" &&
+          k != "duration" &&
+           k != "end_date" &&
+           k != "user_id"
+          }
+  end
+
   def ranking
     ChallengeGoal.where(challenge_id: self.id).joins(:log_scores).group(:challenge_goal_id).order('sum_total_points DESC').sum(:total_points)
   end

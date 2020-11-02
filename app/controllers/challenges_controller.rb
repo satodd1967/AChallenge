@@ -34,7 +34,7 @@ class ChallengesController < ApplicationController
 
     def update
         @challenge.update(challenge_params)
-        @challenge.seth_challenge_end_date_update
+        @challenge.set_challenge_end_date_update
         if @challenge.save
             @challenge.users.each do |user|
                 user.logs.each do |log|

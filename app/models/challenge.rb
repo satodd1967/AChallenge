@@ -81,8 +81,8 @@ class Challenge < ApplicationRecord
   end
 
   def set_challenge_end_date_update
-    if @challenge.start_date && @challenge.duration
-      @challenge.end_date = (@challenge.start_date.to_date + (@challenge.duration*7)).to_s
+    if self.start_date && self.duration
+      self.end_date = (self.start_date.to_date + (self.duration*7)).to_s
     end
   end
   

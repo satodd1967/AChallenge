@@ -36,10 +36,11 @@ private
         end
     end
 
-    def variable_check
-        if !instance_variable_get(:"@#{self.controller_path.singularize}")
-            redirect_to user_path(current_user)
-            flash[:message] = "Invalid object"
-        end
-    end
+    # def variable_check
+    #     if !instance_variable_get(:"@#{self.controller_path.singularize}")
+    #         redirect_to user_path(current_user)
+    #         flash[:message] = "Invalid object"
+    #     end
+    # end
+    
 end

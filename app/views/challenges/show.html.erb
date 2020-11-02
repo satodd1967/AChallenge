@@ -22,7 +22,7 @@
     <li>Description<br>  <%= "-    #{@challenge.description}" %><br></li>
     <br>
     <% @challenge.show_attributes.each do |k, v| %>
-        <li><%= "#{k}: #{v}" %></li>
+        <li><%= "#{k.titleize}: #{v}" %></li>
         <br>
     <% end %>
 </ul>
@@ -30,13 +30,13 @@
 <ul>
   <% @challenge.log_scores.each do |ls| %>
     <li><%= "#{ls.log.user.username}" %></li>
-    <li><%= "Log Date: #{ls.log.log_date}" %></li>
-    <li><%= "Worked Out: #{ls.log.worked_out}" %></li>
-    <li><%= "Tracked Food: #{ls.log.tracked_food}" %></li>
-    <li><%= "Weight: #{ls.log.weight}" %></li>
-    <li><%= "Body Fat %: #{to_percent(ls.log.body_fat)}" %></li>
-    <li><%= "Active Calories: #{ls.log.active_calories}" %></li>
-    <li><%= "Calories: #{ls.log.calories}" %></li>
+    <% ls.log_show_attributes.each do |k, v| %>
+        <% if k == "body_fat" %>
+            <li><%= "#{k.titleize}: #{to_percent(v)}%" %></li>
+        <% else %>
+            <li><%= "#{k.titleize}: #{v}" %></li>
+        <% end %>
+    <% end %>
     <li><%= "Total Points: #{ls.total_points}" %></li>
     <br>
     <br>

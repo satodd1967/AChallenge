@@ -29,7 +29,6 @@ class ChallengesController < ApplicationController
     end
 
     def edit
-        redirect_to challenge_path(@challenge) if !@challenge.user == current_user
     end
 
     def update

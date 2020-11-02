@@ -19,7 +19,7 @@
 <h2>Ranking</h2>
 <ul>
     <% @challenge.ranking.each_with_index do |place, i| %>
-        <li><%= "#{i + 1} - #{ChallengeGoal.find_by(id: place[0]).user.username} with #{place[1]} points" %></li>
+        <h4><li><%= "#{i + 1} - #{ChallengeGoal.find_by(id: place[0]).user.username} with #{place[1]} points" %></li></h4>
     <% end %>
 </ul>
 
@@ -30,7 +30,6 @@
     <br>
     <% @challenge.show_attributes.each do |k, v| %>
         <li><%= "#{k.titleize}: #{v}" %></li>
-        <br>
     <% end %>
 </ul>
 

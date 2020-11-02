@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
     
     skip_before_action :find_object
     skip_before_action :redirect_if_not_logged_in
+    skip_before_action :permission_check
 
     def home
         @user = User.new

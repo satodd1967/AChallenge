@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
     skip_before_action :redirect_if_not_logged_in, only: [:new, :create,]
-
+    skip_before_action :permission_check
+    
     def new
         @user = User.new
     end

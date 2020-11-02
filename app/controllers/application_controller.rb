@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
     before_action :find_object, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_logged_in
+    before_action :permission_check, only: [:show, :edit, :update, :destroy]
 
     helper_method :current_user, :logged_in?, :to_percent, :to_float, :define_attributes, :reset_attributes
 
@@ -28,4 +29,17 @@ private
          (self.controller_path.singularize.classify.constantize).find_by(id: params[:id]))
     end
 
+    def permission_check
+        if instance_variable_get(:"@#{self.controller_path.singularize}").user != current_user
+            redirect_to user_path(current_user)
+            flash[:message] = "Not Allowed"
+        end
+    end
+
+    def variable_check
+        if !instance_variable_get(:"@#{self.controller_path.singularize}")
+            redirect_to user_path(current_user)
+            flash[:message] = "Invalid object"
+        end
+    end
 end

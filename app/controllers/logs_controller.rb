@@ -1,6 +1,5 @@
 class LogsController < ApplicationController
 
-    before_action :log_checks, only: [:show, :edit, :update, :destroy]
     before_action :convert_decimal, only: [:show, :edit]
 
     def new
@@ -42,17 +41,6 @@ class LogsController < ApplicationController
 
     def log_params
         params.require(:log).permit(:log_date, :worked_out, :tracked_food, :weight, :body_fat, :active_calories, :calories)
-    end
-
-    def log_checks
-        if !@log
-            redirect_to user_path(current_user)
-            flash[:message] = "Invalid Log"
-        end
-        if @log.user != current_user
-            redirect_to user_path(current_user)
-            flash[:message] = "Not Allowed"
-        end
     end
 
     def convert_decimal

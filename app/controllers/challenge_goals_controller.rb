@@ -1,7 +1,6 @@
 class ChallengeGoalsController < ApplicationController
-    
+
     before_action :convert_decimal, only: [:show, :edit]
-    before_action :redirect_if_not_logged_in 
 
     def new
         if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])

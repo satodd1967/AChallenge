@@ -2,7 +2,6 @@ class LogsController < ApplicationController
 
     before_action :log_checks, only: [:show, :edit, :update, :destroy]
     before_action :convert_decimal, only: [:show, :edit]
-    before_action :redirect_if_not_logged_in
 
     def new
         @log = Log.new

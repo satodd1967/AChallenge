@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 
     before_action :find_object, only: [:show, :edit, :update, :destroy]
-
+    before_action :redirect_if_not_logged_in
+    
     helper_method :current_user, :logged_in?, :to_percent, :to_float, :define_attributes, :reset_attributes
 
 private

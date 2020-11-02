@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-
+    skip_before_action :redirect_if_not_logged_in, only: [:new, :create,]
 
     def new
         @user = User.new
@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        redirect_if_not_logged_in
         redirect_to root_path if !@user
     end
 

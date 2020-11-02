@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
     before_action :find_object, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_logged_in
-    
+
     helper_method :current_user, :logged_in?, :to_percent, :to_float, :define_attributes, :reset_attributes
 
 private
@@ -25,7 +25,7 @@ private
 
     def find_object
         instance_variable_set(:"@#{self.controller_path.singularize}",
-         (self.controller_path.singularize.titleize.constantize).find_by(id: params[:id]))
+         (self.controller_path.singularize.classify.constantize).find_by(id: params[:id]))
     end
 
 end

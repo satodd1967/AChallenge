@@ -48,4 +48,12 @@ class Log < ApplicationRecord
       end
     end
 
+    def log_show_attributes
+        self.attributes.select {|k, v| k != "id" &&
+         k != "created_at" &&
+          k != "updated_at" &&
+          k != "user_id"
+        }
+      end
+
 end

@@ -1,6 +1,5 @@
 class LogsController < ApplicationController
 
-    before_action :find_log, only: [:show, :edit, :update, :destroy]
     before_action :log_checks, only: [:show, :edit, :update, :destroy]
     before_action :convert_decimal, only: [:show, :edit]
     before_action :redirect_if_not_logged_in
@@ -44,10 +43,6 @@ class LogsController < ApplicationController
 
     def log_params
         params.require(:log).permit(:log_date, :worked_out, :tracked_food, :weight, :body_fat, :active_calories, :calories)
-    end
-
-    def find_log
-        @log = Log.find_by_id(params[:id])
     end
 
     def log_checks

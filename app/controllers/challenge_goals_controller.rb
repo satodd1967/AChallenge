@@ -1,5 +1,5 @@
 class ChallengeGoalsController < ApplicationController
-    before_action :find_challenge_goal, only: [:show, :edit, :update, :destroy]
+    
     before_action :convert_decimal, only: [:show, :edit]
     before_action :redirect_if_not_logged_in 
 
@@ -49,10 +49,6 @@ class ChallengeGoalsController < ApplicationController
 
     def challenge_goal_params
         params.require(:challenge_goal).permit(:start_weight, :start_body_fat, :start_calorie_goal, :challenge_id)
-    end
-
-    def find_challenge_goal
-        @challenge_goal = ChallengeGoal.find_by(id: params[:id])
     end
 
     def convert_decimal

@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     
+    skip_before_action :find_object
 
     def home
         @user = User.new

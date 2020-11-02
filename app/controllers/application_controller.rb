@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+    before_action :find_object, only: [:show, :edit, :update, :destroy]
+
     helper_method :current_user, :logged_in?, :to_percent, :to_float, :define_attributes, :reset_attributes
 
 private
@@ -20,9 +22,9 @@ private
         (float*100).round(2)
     end
 
-    # def find_object(model)
-    #     instance_variable_set(:"@#{model.class.name.downcase}", model.class.find_by(id: params[:id]))
-    # end
-
+    def find_object
+        instance_variable_set(:"@#{self.controller_path.singularize}",
+         (self.controller_path.singularize.titleize.constantize).find_by(id: params[:id]))
+    end
 
 end

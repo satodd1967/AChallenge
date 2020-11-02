@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+
+
     def new
         @user = User.new
     end
@@ -16,7 +18,6 @@ class UsersController < ApplicationController
 
     def show
         redirect_if_not_logged_in
-        @user = User.find_by_id(params[:id])
         redirect_to root_path if !@user
     end
 

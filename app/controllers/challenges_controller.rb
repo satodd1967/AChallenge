@@ -62,8 +62,4 @@ class ChallengesController < ApplicationController
         params.require(:challenge).permit(:name, :description, :start_date, :duration, :end_date, :active_calorie_goal, :points_worked_out, :points_tracked_food, :points_met_calorie_goal, :points_maintain_weight, :points_maintain_body_fat, :points_met_active_calorie_goal)
     end
 
-    # def find_challenge
-    #     @challenge = Challenge.find_by(id: params[:id])
-    # end
-
 end

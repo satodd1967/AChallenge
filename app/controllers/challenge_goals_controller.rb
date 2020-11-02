@@ -47,7 +47,12 @@ class ChallengeGoalsController < ApplicationController
     private
 
     def challenge_goal_params
-        params.require(:challenge_goal).permit(:start_weight, :start_body_fat, :start_calorie_goal, :challenge_id)
+        params.require(:challenge_goal).permit(
+            :start_weight,
+            :start_body_fat,
+            :start_calorie_goal,
+            :challenge_id
+        )
     end
 
     def convert_decimal

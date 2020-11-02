@@ -2,6 +2,7 @@
 <% if flash[:message] %>
   <%= flash[:message] %>
 <% end %>
+
 <h2>Your Challenges</h2>
 <ul>
     <li><h4>Participating</h4></li>
@@ -11,6 +12,7 @@
         <%= render partial: 'participating', locals: {user: @user} %>
     <% end %>
 </ul>
+
 <h2>Diary Logs</h2>
 <ul>
   <% @user.logs.last_first.each do |log| %>

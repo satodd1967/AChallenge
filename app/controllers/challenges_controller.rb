@@ -15,9 +15,7 @@ class ChallengesController < ApplicationController
     
     def create
         @challenge = current_user.owned_challenges.build(challenge_params)
-        if @challenge.start_date && @challenge.start_date != "" && @challenge.duration
-            @challenge.end_date = (@challenge.start_date.to_date + (@challenge.duration*7)).to_s
-        end
+        @challenge.set_challenge_end_date_create
         if @challenge.save
             redirect_to new_challenge_challenge_goal_path(@challenge.id)
         else
@@ -36,9 +34,7 @@ class ChallengesController < ApplicationController
 
     def update
         @challenge.update(challenge_params)
-        if @challenge.start_date && @challenge.duration
-            @challenge.end_date = (@challenge.start_date.to_date + (@challenge.duration*7)).to_s
-        end
+        @challenge.seth_challenge_end_date_update
         if @challenge.save
             @challenge.users.each do |user|
                 user.logs.each do |log|

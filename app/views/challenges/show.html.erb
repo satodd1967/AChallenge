@@ -39,11 +39,7 @@
   <% @challenge.log_scores.each do |ls| %>
     <li><%= "#{ls.log.user.username}" %></li>
     <% ls.log_show_attributes.each do |k, v| %>
-        <% if k == "body_fat" %>
-            <li><%= "#{k.titleize}: #{to_percent(v)}%" %></li>
-        <% else %>
-            <li><%= "#{k.titleize}: #{v}" %></li>
-        <% end %>
+        <li><%= "#{k.titleize}: #{v}" %></li>
     <% end %>
     <li><%= "Total Points: #{ls.total_points}" %></li>
     <br>

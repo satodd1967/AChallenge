@@ -48,18 +48,11 @@ class Log < ApplicationRecord
       end
     end
 
-    # def log_show_attributes
-    #     self.attributes.select {|k, v| k != "id" &&
-    #      k != "created_at" &&
-    #       k != "updated_at" &&
-    #       k != "user_id"
-    #     }
-    #   end
-
-      def log_show_attributes
+    def log_show_attributes
         @attr = self.attributes.select {|k, v| k != "id" && k != "created_at" && k != "updated_at" && k != "user_id"}
+        # @attr["body_fat"] = (@attr["body_fat"]*1).round(2)
         @attr["body_fat%"] = @attr.delete("body_fat")
         @attr
-      end
+    end
 
 end

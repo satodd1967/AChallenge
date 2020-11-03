@@ -1,4 +1,4 @@
-class ChallengesController < ApplicationController   
+class ChallengesController < ApplicationController  
 
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])

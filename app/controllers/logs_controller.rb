@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
 
-    before_action :convert_decimal, only: [:show, :edit]
+    before_action :convert_decimal, only: [:edit]
 
     def new
         @log = Log.new

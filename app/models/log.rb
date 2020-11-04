@@ -1,7 +1,6 @@
 class Log < ApplicationRecord
 
     include Convert
-    include Logic
 
     belongs_to :user
     has_many :log_scores, :dependent => :destroy
@@ -35,7 +34,8 @@ class Log < ApplicationRecord
         if self.log_date >= cg.challenge.start_date && self.log_date <= cg.challenge.end_date
             @ls = cg.log_scores.build
             @ls.log_id = self.id
-            logic(@ls)
+            @ls.logic
+            # logic(@ls)
             @ls.save
         end
       end
@@ -43,7 +43,8 @@ class Log < ApplicationRecord
 
     def update_log_scores
       self.log_scores.each do |ls|
-        logic(ls)
+        ls.logic
+        # logic(ls)
         ls.save
       end
     end

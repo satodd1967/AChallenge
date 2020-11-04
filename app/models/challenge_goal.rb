@@ -1,7 +1,6 @@
 class ChallengeGoal < ApplicationRecord
 
     include Convert
-    include Logic
 
     belongs_to :user
     belongs_to :challenge
@@ -26,7 +25,8 @@ class ChallengeGoal < ApplicationRecord
         if log.log_date >= self.challenge.start_date && log.log_date <= self.challenge.end_date
             @ls = self.log_scores.build
             @ls.log_id = log.id
-            logic(@ls)
+            @ls.logic
+            # logic(@ls)
             @ls.save
         end
       end

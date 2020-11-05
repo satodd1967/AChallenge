@@ -17,6 +17,8 @@
 <ul>
   <% @user.logs.last_first.each do |log| %>
     <li><%= button_to "View Log", log_path(log), :method => :get %></li>
+    <%= render partial: 'logs/show_logs', locals: {object: log.log_show_attributes} %>
+    <br>
     <% log.log_show_attributes.each do |k, v| %>
         <li><%= "#{k.titleize}: #{v}" %></li>
     <% end %>

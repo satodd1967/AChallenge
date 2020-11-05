@@ -38,9 +38,7 @@
 <ul>
   <% @challenge.log_scores.each do |ls| %>
     <li><%= "#{ls.log.user.username}" %></li>
-    <% ls.log.log_show_attributes.each do |k, v| %>
-        <li><%= "#{k.titleize}: #{v}" %></li>
-    <% end %>
+    <%= render partial: 'logs/show_logs', locals: {object: ls.log.log_show_attributes} %>
     <li><%= "Total Points: #{ls.total_points}" %></li>
     <br>
     <% end %>

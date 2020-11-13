@@ -7,7 +7,7 @@ class ChallengesController < ApplicationController
             @users = User.all
             @challenges = Challenge.all
         end
-        if if params[:q] && !params[:q].empty?
+        if params[:q] && !params[:q].empty?
             @challenges = @challenges.search(params[:q].downcase)
         end
     end

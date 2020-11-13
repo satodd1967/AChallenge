@@ -87,7 +87,7 @@ class Challenge < ApplicationRecord
   end
 
   def self.search(params)
-    where("LOWER(name) LIKE ?", "%#{params}%")
+    where("LOWER(name) LIKE :var OR LOWER(description) LIKE :var", var: "%#{params}%")
   end
   
 end

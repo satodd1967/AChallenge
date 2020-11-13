@@ -85,5 +85,9 @@ class Challenge < ApplicationRecord
       self.end_date = (self.start_date.to_date + (self.duration*7)).to_s
     end
   end
+
+  def self.search(params)
+    where("LOWER(name) LIKE ?", "%#{params}%")
+  end
   
 end

@@ -20,6 +20,13 @@
         <h4><%= link_to "Create a new challenge", new_challenge_path, method: "get" %></h4>
         <h4><%= link_to "Create a new log", new_log_path, method: "get" %></h4>
         <h4><%= link_to "Logout", logout_path, method: "delete" %></h4>
+        <% if @challenges %>
+          <%= form_tag("/challenges", method: "get") do %>
+            <%= label_tag(:q, "Search challenges:") %>
+            <%= text_field_tag(:q) %>
+            <%= submit_tag("Search") %>
+          <% end %>
+        <% end %>
     </div>
   <% end %>
     <div class='content'>    

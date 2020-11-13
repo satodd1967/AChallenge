@@ -16,6 +16,8 @@ class Challenge < ApplicationRecord
   validate :not_in_past, on: :create
   validates :duration, numericality: { less_than: 30 }
 
+  scope :search, ->(params) { where("LOWER(name) LIKE :var OR LOWER(description) LIKE :var", var: "%#{params}%") }
+
   def logs
     self.log_scores.each do |ls|
       ls.log
@@ -86,8 +88,4 @@ class Challenge < ApplicationRecord
     end
   end
 
-  def self.search(params)
-    where("LOWER(name) LIKE :var OR LOWER(description) LIKE :var", var: "%#{params}%")
-  end
-  
 end
